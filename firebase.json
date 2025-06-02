@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "PARTU_WEBSTUDIO",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
