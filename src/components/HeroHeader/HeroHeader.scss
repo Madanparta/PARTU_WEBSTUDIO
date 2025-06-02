@@ -1,0 +1,265 @@
+header {
+  width: 80%;
+  height: fit-content;
+  min-height: 4.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1.7rem;
+  border: 1px solid transparent;
+  border-radius: 5.5rem;
+  margin-inline: auto;
+  position: sticky;
+  top: 2rem;
+  z-index: 999;
+  background-color: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: "Poppins", sans-serif;
+  display: flex;
+
+  &.scrolled {
+    border: 1px solid hsl(var(--clr-White), 0.2);
+    background-color: hsl(var(--primary-bg-color), 0.2);
+  }
+
+  nav.desktop-nav {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      text-decoration: none;
+      color: hsl(var(--clr-White));
+      position: relative;
+      padding: 0.3rem 0.5rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: linear-gradient(180deg, #FF1F8F 0%, #A834F2 50%, #1F00B0 100%);
+        transition: width 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  article {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 300;
+
+      span {
+        font-size: 1.34rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .action_contaier {
+    margin-left: auto;
+  }
+
+  .mobile-menu-trigger {
+    display: none;
+  }
+
+  .overlay {
+    display: none;
+  }
+}
+
+// Responsive Styles
+@media (width < 480px) {
+  header {
+    width: 100%;
+    border-radius: 0;
+    padding: 0.7rem 1.2rem;
+    background-color: hsl(var(--primary-bg-color), 0.3);
+    top: 1rem;
+
+    nav.desktop-nav {
+      display: none;
+    }
+
+    .mobile-menu-trigger {
+      display: block;
+      width: 33px;
+      height: 33px;
+      background-image: url("../../assets/svgs/menu-burger.svg");
+      background-size: 20px;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      border-radius: 0.3rem;
+      background-color: hsl(var(--clr-White), 0.2);
+      transition: background-color 0.2s ease;
+      padding-inline: 1.1rem;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: hsl(var(--clr-White), 0.4);
+      }
+    }
+
+    .overlay {
+      display: block;
+      position: fixed;
+      inset: 0;
+      top: -1rem;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+
+      &.open {
+        pointer-events: all;
+        opacity: 1;
+        background-color: #393e46bc;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        section {
+          transform: translateX(0);
+        }
+
+        nav a {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      &.closed {
+        section {
+          transform: translateX(100%);
+        }
+      }
+
+      section {
+        background-image: linear-gradient(180deg, hsl(var(--clr-Electric_Violet), 0.5) 0%, hsl(var(--clr-White), 0.5) 100%);
+        width: 65%;
+        height: 100vh;
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0.3rem 0rem 0rem 0.3rem;
+        gap: 2rem;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        padding: 2.5rem 0.3rem;
+        border: 1px solid transparent;
+        border-radius: 0rem;
+        margin-inline: 0rem;
+        position: fixed;
+        top: 0rem;
+        right: 0rem;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform;
+
+        nav {
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-auto-rows: 55px;
+          align-items: center;
+          margin-block-end: 2.5rem;
+          order: 1;
+
+          a {
+            text-decoration: none;
+            color: hsl(var(--clr-White));
+            width: 100%;
+            display: inline-block;
+            height: 100%;
+            padding-block: 0.5rem;
+            padding-inline-start: 1.9rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+
+            @for $i from 1 through 3 {
+              &:nth-child(#{$i}) {
+                transition-delay: 0.08s * $i;
+              }
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+              background-color: hsl(var(--clr-Dark_Dlue), 0.2);
+            }
+          }
+        }
+
+        article {
+          order: 0;
+          width: 100%;
+          padding-inline-start: 1.9rem;
+          padding-block-start: 0.9rem;
+          margin-block-end: 0.9rem;
+          position: relative;
+
+          h1 {
+            font-size: 1.64rem;
+            width: 100%;
+            align-items: start;
+
+            span {
+              font-size: 1.25em;
+            }
+          }
+
+          .close-btn {
+            position: absolute;
+            top: -33px;
+            right: 5px;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            padding: 1rem;
+            background-color: hsl(var(--clr-White), 0.3);
+            background-image: url(../../assets/svgs/menu-burger-cross.svg);
+            background-size: 18px 18px;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+              background-color: hsl(var(--clr-White), 0.4);
+            }
+          }
+        }
+
+        .action_contaier {
+          order: 2;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
