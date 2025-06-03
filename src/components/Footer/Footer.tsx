@@ -33,7 +33,8 @@ const Footer = () => {
         <p><a href="#Work" onClick={smoothScroll}>WORK</a></p>
         <p><a href="#Services" onClick={smoothScroll}>SERVICES</a></p>
         <p><a href="#Contact" onClick={smoothScroll}>CONTACT</a></p>
-        <p><a href="#">SOURCE CODE</a></p> {/* no smooth scroll */}
+        <p><a href="https://github.com/Madanparta/PARTU_WEBSTUDIO" target="_blank" rel="noopener noreferrer">SOURCE CODE</a></p>
+
       </section>
 
       <section className="footer_media_container">
@@ -41,13 +42,20 @@ const Footer = () => {
         <article className="tradmark">© 2025 Partu Studios</article>
 
         <article className="social_media">
-          <span><GithubIcon/></span>
-          <span><InstagramIcon/></span>
-          <span><LinkedInIcon/></span>
+          <a href="https://github.com/Madanparta" target="_blank" rel="noopener noreferrer">
+            <span><GithubIcon/></span>
+          </a>
+          <a href="https://www.instagram.com/partu_gowda/" target="_blank" rel="noopener noreferrer">
+            <span><InstagramIcon/></span>
+          </a>
+          <a href="https://www.linkedin.com/in/madan-parta" target="_blank" rel="noopener noreferrer">
+            <span><LinkedInIcon/></span>
+          </a>
         </article>
 
+
         <article className="imprint_container">
-          <p><a href="#">IMPRINT</a></p> {/* no smooth scroll */}
+          <p><a href="/imprint" target="_blank" rel="noopener noreferrer">IMPRINT</a></p>
         </article>
 
       </section>
