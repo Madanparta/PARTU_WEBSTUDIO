@@ -39,7 +39,7 @@ const Footer = () => {
 
       <section className="footer_media_container">
 
-        <article className="tradmark">© 2025 Partu Studios</article>
+        <article className="tradmark">© 2025 Partu WebStudio</article>
 
         <article className="social_media">
           <a href="https://github.com/Madanparta" target="_blank" rel="noopener noreferrer">

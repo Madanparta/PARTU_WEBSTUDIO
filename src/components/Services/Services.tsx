@@ -30,7 +30,7 @@ const serviceCards: Service[] = [
   },
   {
     title: 'Website',
-    price: '₹ 7999.00',
+    price: '₹ 5999.00 <sup style="font-size: 12px; font-weight: 400; color: hsl(var(--clr-Persian_Rose))">onwards*</sup>',
     description: "There are no limits to your website vision ― Let's make it happen!.",
     features: [
       { text: 'Modern, custom design', isAddOn: false },

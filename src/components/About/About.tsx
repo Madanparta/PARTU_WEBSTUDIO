@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import "./About.scss";
 
 const phrases = [
+  "Frontend Engineer",
   "React Developer",
   "Web Developer",
-  "Responsive Web Developer",
   "Visual Thinker",
+  "JavaScript Lover",
   "Digital Creator",
-  "Frontend Engineer",
+  "Clean Coder",
+  "Interface Designer",
 ];
 
 const getNextPhrase = (current: string) => {
@@ -117,7 +119,7 @@ const About = () => {
         </h2>
 
         <p className="p_paragraph">
-          At <span className="uppercase">Partu Studio</span>, creativity meets
+          At <span className="uppercase">Partu WebStudio</span>, creativity meets
           code. We don’t just build{" "}
           <b>
             websites—we craft immersive digital experiences with heart, edge,

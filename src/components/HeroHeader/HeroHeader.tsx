@@ -75,7 +75,7 @@ const HeroHeader = () => {
       </nav>
 
       <article>
-        <h1><span>Partu</span>Studios</h1>
+        <h1><span>Partu</span>WebStudio</h1>
       </article>
 
       <div className="action_contaier">
@@ -86,7 +86,7 @@ const HeroHeader = () => {
       <aside className={`overlay ${isMenuOpen ? "open" : "closed"}`}>
         <section ref={sidebarRef}>
           <article>
-            <h1><span>Partu</span>Studios</h1>
+            <h1><span>Partu</span>WebStudio</h1>
             <div className="close-btn" onClick={closeMenu}></div>
           </article>
           <nav>

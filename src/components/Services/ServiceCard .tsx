@@ -20,7 +20,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, price, description, fe
     <div className={`service_card ${title === 'Website' ? 'website' : ''}`}>
       <div className="card_header">
         <h5>{title}</h5>
-        <h3>{price}</h3>
+        <h3 dangerouslySetInnerHTML={{ __html: price }} />
         <h6>{description}</h6>
       </div>
 
