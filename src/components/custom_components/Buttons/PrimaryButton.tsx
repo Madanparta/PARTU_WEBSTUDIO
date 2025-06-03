@@ -1,5 +1,5 @@
 import type { FC, MouseEvent } from 'react';
-import './PrimaryButton.scss';
+import './primarybutton.scss';
 
 interface PrimaryButtonProps {
   buttonText: string;
