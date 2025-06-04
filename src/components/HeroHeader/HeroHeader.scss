@@ -281,7 +281,7 @@ header {
 
     }
 
-    @media (width <=360px) {
+    @media (width < 360px) {
       .action_contaier {
         display: none;
       }
