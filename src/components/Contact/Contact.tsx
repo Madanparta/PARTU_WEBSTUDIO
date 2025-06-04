@@ -184,7 +184,7 @@ const Contact: React.FC = () => {
           {errors.name && (
             <p className="error">
               <span>
-                <img src={InfoIcon} alt="error" />
+                <img src={InfoIcon} alt="" />
               </span>
               {errors.name}
             </p>
@@ -204,7 +204,7 @@ const Contact: React.FC = () => {
           {errors.email && (
             <p className="error">
               <span>
-                <img src={InfoIcon} alt="error" />
+                <img src={InfoIcon} alt="" />
               </span>
               {errors.email}
             </p>
@@ -224,7 +224,7 @@ const Contact: React.FC = () => {
           {errors.message && (
             <p className="error">
               <span>
-                <img src={InfoIcon} alt="error" />
+                <img src={InfoIcon} alt="" />
               </span>
               {errors.message}
             </p>
@@ -234,7 +234,7 @@ const Contact: React.FC = () => {
         <div className="contact_submit_container">
           <p className="p_paragraph">
             <span>
-              <img src={emailIcon} alt="email" />
+              <img src={emailIcon} alt="" />
             </span>
             connectme.madan@gmail.com
           </p>

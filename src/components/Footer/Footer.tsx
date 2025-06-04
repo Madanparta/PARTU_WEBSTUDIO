@@ -25,7 +25,7 @@ const Footer = () => {
     <footer>
 
       <section className="footer_logo_container">
-        <img src="/logos/android-chrome-192x192.png" alt="logo" loading="lazy"/>
+        <img src="/logos/android-chrome-192x192.png" alt="" loading="lazy" aria-label="partu webstudio logo"/>
       </section>
 
       <section className="footer_nav_container">
@@ -42,13 +42,13 @@ const Footer = () => {
         <article className="tradmark">© 2025 Partu WebStudio</article>
 
         <article className="social_media">
-          <a href="https://github.com/Madanparta" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Madanparta" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
             <span><GithubIcon/></span>
           </a>
-          <a href="https://www.instagram.com/partu_gowda/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/partu_gowda/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
             <span><InstagramIcon/></span>
           </a>
-          <a href="https://www.linkedin.com/in/madan-parta" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/madan-parta" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
             <span><LinkedInIcon/></span>
           </a>
         </article>

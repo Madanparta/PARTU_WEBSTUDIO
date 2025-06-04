@@ -95,7 +95,7 @@ const About = () => {
   return (
     <div className="about">
       <article className="image_container">
-        <img src="/image/madan_image.jpg" alt="partu_studios" />
+        <img src="/image/madan_image.jpg" alt="" />
       </article>
       <article className="info_container">
         <span id="about" className="text_button">About</span>

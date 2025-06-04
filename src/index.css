@@ -189,11 +189,11 @@ d-block {
     font-size: 1.25rem;
     font-weight: 400;
     font-family: "Roboto", sans-serif;
-    color: hsl(var(--br-color-light_blue));
+    color: hsl(210, 14%, 34%);
 
     span,
     b {
-        color: #ffffff8d;
+        color: hsla(0, 0%, 100%, 0.55);
     }
 }
 

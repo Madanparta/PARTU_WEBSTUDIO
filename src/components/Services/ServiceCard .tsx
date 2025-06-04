@@ -28,7 +28,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, price, description, fe
         {features.map(({ text, isAddOn }, idx) => (
           <li key={idx}>
             <span>
-              <img src={isAddOn ? addIcon : checkedCircle} alt={text} />
+              <img src={isAddOn ? addIcon : checkedCircle} alt="" aria-hidden="true" />
             </span>
             {text}
           </li>
@@ -37,7 +37,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, price, description, fe
 
       <div className="card_footer">
         <span>Secure your package now</span>
-        <span><img src={arrowRight} alt="arrow icon" /></span>
+        <span><img src={arrowRight} alt="" aria-hidden="true" /></span>
       </div>
     </div>
   );
