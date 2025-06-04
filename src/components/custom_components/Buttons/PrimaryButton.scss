@@ -31,12 +31,10 @@
     left: -75%;
     width: 50%;
     height: 100%;
-    background: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0.6) 50%,
-      rgba(255, 255, 255, 0.2) 100%
-    );
+    background: linear-gradient(120deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.2) 100%);
     transform: skewX(-20deg);
     z-index: 2;
     transition: none;
@@ -51,6 +49,7 @@
   0% {
     left: -75%;
   }
+
   100% {
     left: 125%;
   }
@@ -73,5 +72,14 @@
   to {
     transform: scale(4);
     opacity: 0;
+  }
+}
+
+
+// Responsive Styles
+@media (width < 480px) {
+  .primary-button {
+    min-width: 110px;
+    padding: 5px 10px;
   }
 }

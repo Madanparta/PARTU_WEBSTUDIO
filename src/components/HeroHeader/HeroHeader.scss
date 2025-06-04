@@ -92,7 +92,7 @@ header {
       display: none;
     }
 
-    article{
+    article {
       justify-content: start;
     }
 
@@ -270,7 +270,20 @@ header {
           display: flex;
           justify-content: center;
           align-items: center;
+
+          .primary-button {
+            min-width: min(90px, 110px);
+            font-size: var(--fs-300);
+          }
         }
+
+      }
+
+    }
+
+    @media (width <=360px) {
+      .action_contaier {
+        display: none;
       }
     }
   }
