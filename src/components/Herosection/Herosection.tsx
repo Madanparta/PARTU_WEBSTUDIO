@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import PrimaryButton from "../custom_components/Buttons/PrimaryButton";
 import "./Herosection.scss";
 
 const Herosection = () => {
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 480);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const smoothScrollTo = (id: string) => {
     const targetElement = document.getElementById(id);
     if (targetElement) {
@@ -19,8 +30,15 @@ const Herosection = () => {
   return (
     <article className="herosection flex">
       <h1>
-        <span>A Web Development</span> <span>and Creative Studio</span>{" "}
-        <span>from the Future</span>
+        {isMobile ? (
+          "A Web Development and Creative Studio from the Future"
+        ) : (
+          <>
+            <span>A Web Development</span>{" "}
+            <span>and Creative Studio</span>{" "}
+            <span>from the Future</span>
+          </>
+        )}
       </h1>
 
       <div className="herosection_button_contaier flex">
