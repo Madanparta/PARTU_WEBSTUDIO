@@ -84,7 +84,7 @@ const HeroHeader = () => {
 
       {/* Smooth slide-in/slide-out sidebar */}
       <aside className={`overlay ${isMenuOpen ? "open" : "closed"}`}>
-        <section ref={sidebarRef}>
+        <section ref={sidebarRef} aria-expanded={isMenuOpen} aria-controls="sidebar">
           <article>
             <h1><span>Partu</span>WebStudio</h1>
             <div className="close-btn" onClick={closeMenu}></div>
