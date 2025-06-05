@@ -1,0 +1,104 @@
+const serviceCards: Service[] = [
+  {
+    title: 'Web Application Solutions',
+    price: 'Custom Quote',
+    description:
+      "We build bespoke web applications tailored to your unique goals—whether it's a dynamic marketing site, a powerful platform, or a cross-platform solution. Let’s align on your vision and deliver a custom quote built around real impact.",
+    features: [
+      { text: 'Modern, custom design', isAddOn: false },
+      { text: 'Responsive & accessible', isAddOn: false },
+      { text: 'Optimized performance', isAddOn: false },
+      { text: 'Animations & interactions', isAddOn: false },
+      { text: 'Scalable backend solutions or bring your own backend', isAddOn: false },
+      { text: 'Multi-platform support (PWA, Desktop, Mobile) | Custom quote', isAddOn: true },
+      { text: 'Priority support & dedicated project manager | Custom quote', isAddOn: true },
+    ],
+    highlights: ["Ideal for startups & enterprises", "1-month free bug fixes"],
+  },
+  {
+    title: 'Professional Website',
+    price: '₹ 7,999 <sup style="font-size: 12px; font-weight: 400; color: hsl(var(--clr-Persian_Rose))">onwards*</sup>',
+    description: "Get a high-quality, custom-designed website with modern features—perfect for businesses and professionals.",
+    features: [
+      { text: '5+ pages with modern design', isAddOn: false },
+      { text: 'Fully responsive & mobile-friendly', isAddOn: false },
+      { text: 'Basic SEO optimization', isAddOn: false },
+      { text: 'Fast-loading performance', isAddOn: false },
+      { text: '1-month free maintenance', isAddOn: false },
+      { text: 'CMS (self-editable) integration | +₹2,500', isAddOn: true },
+      { text: 'Multilingual support (Hindi/Regional) | +₹3,000', isAddOn: true },
+      { text: 'Premium hosting setup | +₹1,500/year', isAddOn: true },
+    ],
+    highlights: ["7-day money-back guarantee", "Free domain & SSL* for 1st year"],
+  },
+  {
+    title: 'Website Maintenance & Support',
+    price: '₹ 1,599 <sup style="font-size: 12px; font-weight: 400; color: hsl(var(--clr-Persian_Rose))">/month*</sup>',
+    description: "Keep your website secure, updated, and running smoothly with our hassle-free maintenance plans.",
+    features: [
+      { text: 'Security updates & backups', isAddOn: false },
+      { text: 'Performance optimization', isAddOn: false },
+      { text: 'Basic content updates (up to 5 pages/month)', isAddOn: false },
+      { text: '24/7 emergency support', isAddOn: false },
+      { text: 'Quarterly plan (₹4,317 - save 10%)', isAddOn: true },
+      { text: 'Half-yearly plan (₹8,154 - save 15%)', isAddOn: true },
+      { text: 'Yearly plan (₹15,350 - save 20%)', isAddOn: true },
+      { text: 'Premium support (2-hour response) | +₹999/month', isAddOn: true },
+    ],
+    highlights: ["Uptime monitoring included", "GST-compliant invoices"],
+  }
+];
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+const serviceCards: Service[] = [
+  {
+    title: 'Premium Web Applications',
+    badge: "🔥 Most Popular (Startups & SMEs)",
+    price: 'Custom Quote',
+    description: "Scalable web apps with **1.5x faster performance** than standard solutions. Get a free consultation + prototype before committing!",
+    features: [
+      { text: 'Tailored UX/UI design (Figma mockups first)', isAddOn: false },
+      { text: 'Blazing-fast load times (<1s optimizations)', isAddOn: false },
+      { text: 'API/database integration support', isAddOn: false },
+      { text: '1-year free hosting* (worth ₹8,000)', isAddOn: false, isHighlight: true },
+      { text: 'Multi-platform (PWA/Android/iOS) | +₹15,000', isAddOn: true },
+      { text: 'Dedicated DevOps + AWS/GCP setup | +₹9,999', isAddOn: true },
+    ],
+    cta: "⏳ Limited slots: Get 10% off if booked this week!"
+  },
+  {
+    title: 'Business-Grade Website',
+    badge: "💎 Best Value",
+    price: '₹ 8,499 <del>₹9,999</del> <sup style="font-size: 12px; color: hsl(var(--clr-Persian_Rose))">(Launch Offer)</sup>',
+    description: "**5-page website** with premium design + **free domain & SSL (₹2,000 value)**. Used by 120+ Indian businesses in 2024!",
+    features: [
+      { text: 'Mobile-first responsive design', isAddOn: false },
+      { text: 'SEO pre-optimized (Google-ready)', isAddOn: false },
+      { text: '1-hour training session', isAddOn: false },
+      { text: '3 months free maintenance*', isAddOn: false, isHighlight: true },
+      { text: 'CMS (WordPress/Webflow) | +₹3,000', isAddOn: true },
+      { text: 'Hindi/Regional language | +₹2,500', isAddOn: true },
+      { text: 'E-commerce setup (Payments, Catalog) | +₹6,000', isAddOn: true },
+    ],
+    cta: "🎁 Free Google Business Profile setup (worth ₹3,500) for first 20 clients!"
+  },
+  {
+    title: 'Website Care Shield',
+    badge: "🛡️ Zero-Downtime Guarantee",
+    price: '₹ 1,799 <sup style="font-size: 12px; color: hsl(var(--clr-Persian_Rose))">/month</sup>',
+    description: "**#1 Maintenance Plan in India** (voted by clients) – Sleep peacefully while we guard your site 24/7.",
+    features: [
+      { text: 'Malware removal & daily backups', isAddOn: false },
+      { text: 'Speed boost (90+ PageSpeed score)', isAddOn: false },
+      { text: '5 content updates/month', isAddOn: false },
+      { text: '**Zero-downtime SLA**', isAddOn: false, isHighlight: true },
+      { text: 'Annual plan (₹19,999 – save ₹1,589)', isAddOn: true },
+      { text: 'Same-day emergency support | +₹999/month', isAddOn: true },
+      { text: 'Monthly analytics reports | +₹499/month', isAddOn: true },
+    ],
+    cta: "🔒 30-day risk-free trial – cancel anytime!"
+  }
+];
