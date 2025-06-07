@@ -48,7 +48,7 @@ const Herosection = () => {
         />
         
         <PrimaryButton
-          onClick={() => smoothScrollTo("Contact")}
+          onClick={() => smoothScrollTo("Services")}
           customStype={"secondary"}
           buttonText="See services"
         />

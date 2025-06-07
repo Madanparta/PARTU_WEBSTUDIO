@@ -49,7 +49,9 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleBlur = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleBlur = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     const trimmedValue = value.trim();
     let errorMsg = "";
@@ -78,12 +80,12 @@ const Contact: React.FC = () => {
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Invalid email format.";
     }
-    
-      if (!formData.phone.trim()) {
-    newErrors.phone = "Phone number is required.";
-  } else if (!/^\d{10,12}$/.test(formData.phone)) {
-    newErrors.phone = "Phone number must be between 10 and 12 digits.";
-  }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required.";
+    } else if (!/^\d{10,12}$/.test(formData.phone)) {
+      newErrors.phone = "Phone number must be between 10 and 12 digits.";
+    }
 
     if (!formData.message.trim()) {
       newErrors.message = "Message is required.";
@@ -143,7 +145,7 @@ const Contact: React.FC = () => {
             theme: "light",
           }
         );
-        setFormData({ name: "", email: "", message: "",phone:"" });
+        setFormData({ name: "", email: "", message: "", phone: "" });
       } else {
         throw new Error(`Unexpected status code: ${response.status}`);
       }
@@ -202,7 +204,6 @@ const Contact: React.FC = () => {
         </div>
 
         <article className="input-merge flex">
-          
           <div className="contact_input_container">
             <label htmlFor="email">EMAIL</label>
             <input
@@ -242,9 +243,7 @@ const Contact: React.FC = () => {
               </p>
             )}
           </div>
-
         </article>
-
 
         <div className="contact_input_container">
           <label htmlFor="message">MESSAGE</label>
