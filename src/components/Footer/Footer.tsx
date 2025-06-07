@@ -45,7 +45,7 @@ const Footer = () => {
           <a href="https://github.com/Madanparta" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
             <span><GithubIcon/></span>
           </a>
-          <a href="https://www.instagram.com/partu_gowda/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+          <a href="https://www.instagram.com/partu_webstudio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
             <span><InstagramIcon/></span>
           </a>
           <a href="https://www.linkedin.com/in/madan-parta" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">

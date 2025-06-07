@@ -11,6 +11,7 @@ interface FormData {
   name: string;
   email: string;
   message: string;
+  phone: string;
   to_email?: string;
 }
 
@@ -18,6 +19,7 @@ interface FormErrors {
   name?: string;
   email?: string;
   message?: string;
+  phone?: string;
 }
 
 const Contact: React.FC = () => {
@@ -25,6 +27,7 @@ const Contact: React.FC = () => {
     name: "",
     email: "",
     message: "",
+    phone: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -75,6 +78,12 @@ const Contact: React.FC = () => {
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Invalid email format.";
     }
+    
+      if (!formData.phone.trim()) {
+    newErrors.phone = "Phone number is required.";
+  } else if (!/^\d{10,12}$/.test(formData.phone)) {
+    newErrors.phone = "Phone number must be between 10 and 12 digits.";
+  }
 
     if (!formData.message.trim()) {
       newErrors.message = "Message is required.";
@@ -104,6 +113,7 @@ const Contact: React.FC = () => {
         name: formData.name,
         email: formData.email,
         message: formData.message,
+        phone: formData.phone,
       },
       accessToken: import.meta.env.VITE_EMAILJS_ACCESS_TOKEN,
     };
@@ -133,7 +143,7 @@ const Contact: React.FC = () => {
             theme: "light",
           }
         );
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "",phone:"" });
       } else {
         throw new Error(`Unexpected status code: ${response.status}`);
       }
@@ -191,25 +201,50 @@ const Contact: React.FC = () => {
           )}
         </div>
 
-        <div className="contact_input_container">
-          <label htmlFor="email">EMAIL</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.email && (
-            <p className="error">
-              <span>
-                <img src={InfoIcon} alt="" />
-              </span>
-              {errors.email}
-            </p>
-          )}
-        </div>
+        <article className="input-merge flex">
+          
+          <div className="contact_input_container">
+            <label htmlFor="email">EMAIL</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.email && (
+              <p className="error">
+                <span>
+                  <img src={InfoIcon} alt="" />
+                </span>
+                {errors.email}
+              </p>
+            )}
+          </div>
+
+          <div className="contact_input_container">
+            <label htmlFor="phone">PHONE</label>
+            <input
+              type="number"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.phone && (
+              <p className="error">
+                <span>
+                  <img src={InfoIcon} alt="" />
+                </span>
+                {errors.phone}
+              </p>
+            )}
+          </div>
+
+        </article>
+
 
         <div className="contact_input_container">
           <label htmlFor="message">MESSAGE</label>
@@ -236,7 +271,7 @@ const Contact: React.FC = () => {
             <span>
               <img src={emailIcon} alt="" />
             </span>
-            connectme.madan@gmail.com
+            info.partuwebstudio@gmail.com
           </p>
           <PrimaryButton
             buttonText={isSubmitting ? "Sending..." : "Hit up us 🚀"}
