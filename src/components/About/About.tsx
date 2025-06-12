@@ -5,11 +5,6 @@ const phrases = [
   "Frontend Engineer",
   "React Developer",
   "Web Developer",
-  "Visual Thinker",
-  "JavaScript Lover",
-  "Digital Creator",
-  "Clean Coder",
-  "Interface Designer",
 ];
 
 const getNextPhrase = (current: string) => {
