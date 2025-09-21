@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
 import Services from "./components/Services/Services";
 import Contact from "./components/Contact/Contact";
+import Work from "./components/Work/Work";
 
 const App: React.FC = () => {
   const gridRef = useRef<HTMLDivElement | null>(null);
@@ -47,6 +48,10 @@ const App: React.FC = () => {
 
       <section id="About" className="about_container">
         <About/>
+      </section>
+
+      <section id="Work" className="works_container">
+        <Work/>
       </section>
 
       <section id="Services" className="service_container">
