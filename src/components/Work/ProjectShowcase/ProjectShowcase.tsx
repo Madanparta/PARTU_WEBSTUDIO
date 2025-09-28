@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProjectShowcase.scss';
 
 interface Project {
@@ -17,10 +17,45 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
   const [loadedImages, setLoadedImages] = useState<number[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [activeProject, setActiveProject] = useState<number | null>(null);
+  
+  useEffect(() => {
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkDevice();
+
+    window.addEventListener('resize', checkDevice);
+
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
 
   const handleImageLoad = (id: number) => {
     if (!loadedImages.includes(id)) {
       setLoadedImages(prev => [...prev, id]);
+    }
+  };
+
+  const handleProjectClick = (project: Project) => {
+    if (isMobile) {
+      if (activeProject === project.id) {
+        window.open(project.projectUrl, '_blank', 'noopener,noreferrer');
+      } else {
+        setActiveProject(project.id);
+      }
+    } else {
+      openProject(project);
+    }
+  };
+
+  const handleProjectLinkClick = (e: React.MouseEvent, project: Project) => {
+    e.stopPropagation();
+    if (isMobile) {
+      window.open(project.projectUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      openProject(project);
     }
   };
 
@@ -38,11 +73,29 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
     }, 300);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (isMobile && activeProject !== null) {
+        const target = e.target as Element;
+        if (!target.closest('.project-card')) {
+          setActiveProject(null);
+        }
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobile, activeProject]);
+
   return (
     <>
       <div className="project-showcase">
         {projects.map((project) => (
-          <div className='project-card' key={project.id} onClick={() => openProject(project)}>
+          <div 
+            className={`project-card ${activeProject === project.id ? 'active' : ''}`}
+            key={project.id} 
+            onClick={() => handleProjectClick(project)}
+          >
             <div className="image-container">
               <div className={`image-wrapper ${loadedImages.includes(project.id) ? 'loaded' : ''}`}>
                 <img src={project.imageUrl} alt="" onLoad={() => handleImageLoad(project.id)} />
@@ -51,9 +104,14 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
                 <div className="content-wrapper">
                   <h2>{project.title}</h2>
                   <p>{project.description}</p>
-                  <a className='project-link' onClick={(e) => { e.stopPropagation(); openProject(project); }}>
+                  <a 
+                    className='project-link' 
+                    onClick={(e) => handleProjectLinkClick(e, project)}
+                    target={isMobile ? '_blank' : '_self'}
+                    rel={isMobile ? 'noopener noreferrer' : ''}
+                  >
                     <i className="fas fa-external-link-alt"></i>
-                    View Project
+                    {isMobile ? 'Open Project' : 'View Project'}
                   </a>
                 </div>
               </div>
@@ -62,8 +120,8 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
         ))}
       </div>
 
-      {/* Project Modal */}
-      {selectedProject && (
+      {/* Project Modal - Only show on desktop */}
+      {!isMobile && selectedProject && (
         <div className={`project-modal ${isModalOpen ? 'open' : ''}`}>
           <div className="modal-header">
             <h3>{selectedProject.title}</h3>
@@ -93,8 +151,8 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
         </div>
       )}
 
-      {/* Modal Overlay */}
-      {isModalOpen && <div className="modal-overlay" onClick={closeProject}></div>}
+      {/* Modal Overlay - Only show on desktop */}
+      {!isMobile && isModalOpen && <div className="modal-overlay" onClick={closeProject}></div>}
     </>
   );
 };
