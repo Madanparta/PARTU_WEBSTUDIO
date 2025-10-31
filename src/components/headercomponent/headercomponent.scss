@@ -1,0 +1,149 @@
+@use '../../mixins' as m;
+
+$footer-gray:#fffafade;
+
+.header-component{
+    position: relative;
+    max-height: 240px;
+    min-width: var(--lg-screen-minwidth);
+    max-width: var(--lg-screen-maxwidth);
+    margin-inline: auto;
+    padding-block: 0.5rem;
+    z-index: 1000;
+
+    @include m.flex-between;
+
+    .logocontainer{
+        max-width: 7.5rem;
+        max-height: 7.5rem;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+
+    .menucontainer{
+        width: fit-content;
+        height: 100%;
+        z-index: 1001;
+    }
+
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--black-color);
+        transform: translateX(-100%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 999;
+        overflow: hidden;
+
+        &.active {
+            transform: translateX(0);
+        }
+
+        .menu-content {
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .menu-header {
+                @include m.flex-between;
+                padding-bottom: 2rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+                .logocontainer {
+                    max-width: 5rem;
+                    max-height: 5rem;
+                }
+            }
+
+            .navigation {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    text-align: center;
+
+                    li {
+                        margin-bottom: 2rem;
+                        opacity: 0;
+                        transform: translateX(-50px);
+                        animation: slideInLeft 0.5s ease forwards;
+
+                        @for $i from 1 through 10 {
+                            &:nth-child(#{$i}) {
+                                animation-delay: #{$i * 0.1}s;
+                            }
+                        }
+
+                        a {
+                            color: $footer-gray;
+                            text-decoration: none;
+                            font-size: 2.5rem;
+                            font-weight: 300;
+                            letter-spacing: 2px;
+                            transition: all 0.3s ease;
+                            display: inline-block;
+                            padding: 0.5rem 1rem;
+                            
+                            &:hover {
+                                color: var(--white-color);
+                                transform: translateX(10px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-component {
+        .menu-overlay {
+            .menu-content {
+                padding: 1rem;
+
+                .navigation {
+                    ul {
+                        li {
+                            a {
+                                font-size: 2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}

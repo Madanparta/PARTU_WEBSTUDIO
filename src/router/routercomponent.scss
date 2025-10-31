@@ -1,0 +1,39 @@
+@use '../mixins' as m;
+
+.route-container{
+    width: 100%;
+    min-height: 100vh;
+
+    // .micronav{
+    //     width: 100%;
+    //     padding-inline: 2rem;
+    //     position: sticky;
+    //     top: 850px;
+    //     left: 0;
+    //     z-index: 1000;
+
+    //     .horizontal-text{
+    //         writing-mode: vertical-rl;
+    //         text-orientation: mixed;
+    //         transform: rotate(180deg);
+    //         letter-spacing: 2px;
+    //         font-weight: 400;
+    //         cursor: pointer;
+    //     }
+    // }
+
+    .header-container{
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+    }
+
+    .footer-container{
+        height: 100%;
+        width: 100%;
+        background-color: var(--bg-color);
+    }
+}

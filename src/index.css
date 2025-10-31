@@ -7,31 +7,25 @@
 }
 
 :root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
+    font-family: "Inter", sans-serif;
+    /* font-family: "Outfit", sans-serif; */
+    font-optical-sizing: auto;
+    line-height: 16+8;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    /* font-size */
-    --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
-    --fs-800: 6.25rem;
-    --fs-700: 3.5rem;
-    --fs-600: 2rem;
-    --fs-500: 1.75rem;
-    --fs-400: 1.125rem;
-    --fs-300: 1rem;
-    --fs-200: 0.875rem;
+    --bg-color:#000000;
+    --white-color:#ffffff;
+    --black-color:#000000;
 
-    /* font-weight */
-    --fw-900: 900;
-    --fw-600: 600;
-    --fw-400: 400;
+    --lg-screen-minwidth: 1024px;
+    --lg-screen-maxwidth: 1440px;
 
     /* colors */
-    --primary-bg-color: 240, 33%, 8%;
+    /* --primary-bg-color: 240, 33%, 8%;
     --secondary-color: 225, 19%, 59%;
 
     --clr-Dark_Dlue: 248, 100%, 35%;
@@ -39,44 +33,17 @@
     --clr-Persian_Rose: 327, 100%, 56%;
     --clr-White: 0, 0%, 100%;
 
-    --br-color-light_blue: 210, 14%, 34%;
-
-    /* screen sizes */
-    --mb-small_screen-max_width: 480px;
-    --mb-large_screen-min_width: 481px;
-    --mb-large_screen-max_width: 767px;
-
-    --tb-small_screen-min_width: 768px;
-    --tb-small_screen-max_width: 991px;
-    --tb-large_screen-min_width: 992px;
-    --tb-large_screen-max_width: 1199px;
+    --br-color-light_blue: 210, 14%, 34%; */
 }
 
 /* background: linear-gradient(180deg, #FF1F8F 0%, #A834F2 50%, #1F00B0 100%); */
 /* transform-style: inherit; */
 
-@media (min-width: 35em) {
-    :root {
-        --fs-800: 5rem;
-        --fs-700: 1.5rem;
-        --fs-600: 1.5rem;
-        --fs-400: 1rem;
-    }
-}
-
-@media (min-width: 45em) {
-    :root {
-        --fs-800: 6.25rem;
-        --fs-700: 3.5rem;
-        --fs-600: 2rem;
-        --fs-400: 1.125rem;
-    }
-}
 
 body {
-    background: hsl(var(--primary-bg-color));
-    color: hsl(var(--clr-White));
-    font-size: var(--fs-400);
+    background-color: var(--bg-color);
+    color: var(--white-color);
+    font-size: 1rem;
     min-height: 100vh;
     width: 100%;
 
@@ -133,116 +100,5 @@ select {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
-    }
-}
-
-/* ------------------- */
-/* Utility classes     */
-/* ------------------- */
-
-/* general */
-
-.fs-h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-@media (max-width: 600px) {
-    .fs-h2 {
-        font-size: 1.8rem;
-        line-height: 2.4rem;
-        font-weight: bold;
-    }
-}
-
-.flex {
-    display: flex;
-    gap: var(--gap, 1rem);
-}
-
-.grid {
-    display: grid;
-    gap: var(--gap, 1rem);
-}
-
-d-block {
-    display: block;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-.uppercase {
-    text-transform: uppercase;
-}
-
-.p_paragraph {
-    font-size: 1.25rem;
-    font-weight: 400;
-    font-family: "Roboto", sans-serif;
-    color: hsl(210, 14%, 34%);
-
-    span,
-    b {
-        color: hsla(0, 0%, 100%, 0.55);
-    }
-}
-
-
-@media (max-width: 600px) {
-    .p_paragraph {
-        font-size: 1rem;
-    }
-}
-
-.text_button {
-    width: fit-content;
-    display: inline-block;
-    padding: 0.4rem 2rem;
-    background: linear-gradient(90deg, hsl(var(--clr-Dark_Dlue), 0.5), hsl(var(--clr-Electric_Violet)));
-    font-size: var(--fs-400);
-    font-weight: 400;
-    border-radius: 1.5rem;
-    height: fit-content;
-    overflow: hidden;
-    position: relative;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -75%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(120deg,
-                rgba(255, 255, 255, 0.2) 0%,
-                rgba(255, 255, 255, 0.6) 50%,
-                rgba(255, 255, 255, 0.2) 100%);
-        transform: skewX(-20deg);
-        z-index: 2;
-        transition: none;
-    }
-
-    &:hover::before {
-        animation: shine 0.8s ease-in-out forwards;
-    }
-}
-
-@keyframes shine {
-    0% {
-        left: -75%;
-    }
-
-    100% {
-        left: 125%;
     }
 }

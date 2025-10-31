@@ -1,0 +1,48 @@
+@use '../../mixins' as m;
+
+$gray-color:#838383;
+
+.visiter-container{
+    width: 100%;
+    min-height: 100vh;
+    width: 100%;
+
+    .about-container{
+        background-color: var(--white-color);
+    }
+
+    .service-container{
+        position: relative;
+
+        .infonav{
+            position: absolute;
+            top: 10%;
+            right: 0;
+            display: flex;
+            align-items: center;
+
+            p {
+                margin: 0 10px 0 0;
+                white-space: nowrap;
+                font-family: "Outfit", sans-serif;
+                @include m.font-size(16);
+                @include m.line-height(22);
+                font-weight: 400;
+                color: $gray-color;
+                letter-spacing: 1px;
+            }
+
+            .line {
+                width: 40rem; 
+                height: 2px; 
+                background-color: $gray-color;
+                border-radius: 50px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .about2-container{
+        background-color: var(--white-color);
+    }
+}

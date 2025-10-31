@@ -1,0 +1,58 @@
+@use '../../mixins' as m;
+
+$paragraphcolor: #9f9f9f;
+
+.herosection-component{
+    width: 100%;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--black-color);
+    position: relative;
+
+    .heroanimation-info{
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        max-height: 100vh;
+        width: var(--lg-screen-maxwidth);
+        min-width: var(--lg-screen-minwidth);
+
+        h1{
+            @include m.font-size(74);
+            @include m.line-height(74);
+            font-family: "Outfit", sans-serif;
+            color: var(--white-color);
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+
+            span{
+                &:nth-child(even){
+                    font-weight: 200;
+                }
+            }
+        }
+
+        p{
+            @include m.font-size(24);
+            @include m.line-height(24);
+            letter-spacing: -1px;
+            line-height: 1.9rem;
+            color: $paragraphcolor;
+            margin-bottom: 4rem;
+        }
+
+        .action-container{
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        } 
+    }
+    .scoll-component{
+        position: absolute;
+        bottom: 10.5rem;
+        right: 8.5rem;
+        z-index: 100;
+    }
+}
