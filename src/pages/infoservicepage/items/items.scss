@@ -1,0 +1,234 @@
+@use '../../../mixins' as m;
+
+$gray-color:#838383;
+
+.items-component{
+    min-height: 100vh;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    overflow: hidden;
+
+    position: relative;
+
+    .infonav{
+        margin-top: 14rem;
+        display: flex;
+        z-index: 10;
+        position: relative;
+
+        p {
+            margin: 0 0 0 10px;
+            white-space: nowrap;
+            font-family: "Outfit", sans-serif;
+            @include m.font-size(16);
+            @include m.line-height(22);
+            font-weight: 400;
+            color: $gray-color;
+            letter-spacing: 1px;
+
+            span{
+                display: inline-block;
+                margin-right: 1rem;
+                color: var(--black-color);
+                
+                a{
+                    text-decoration: none;
+                    color: var(--black-color);
+                }
+
+                &:last-child{
+                    a{
+                        color: $gray-color;
+                        cursor: default;
+                    }
+                }
+            }
+        }
+
+        .line {
+            width: 25rem; 
+            height: 2px; 
+            background-color: $gray-color;
+            border-radius: 50px;
+            margin-top: 10px;
+        }
+    }
+
+    .item-container{
+        width: var(--lg-screen-maxwidth);
+        min-width: var(--lg-screen-minwidth);
+        margin-inline: auto;
+
+        .itemheading-section{
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 0rem;
+
+            h2{
+                @include m.font-size(74);
+                @include m.line-height(74);
+                font-family: "Outfit", sans-serif;
+                font-weight: 600;
+                color: var(--black-color);
+                margin-top: 2rem;
+
+                span{
+                    &:nth-child(even){
+                        font-weight: 100;
+                    }
+                }
+            }
+
+            .itemsubheading-section{
+                margin-top: 6rem;
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+    
+                .arrowdown{
+                    width: 43px;
+                    height: 43px;
+                    border-radius: 50px;
+                    background: $gray-color;
+                    box-shadow: 0px 2.89px 2.89px 0px rgba(0, 0, 0, 0.25) inset;
+                    @include m.flex-center;
+                    margin-left: 10rem;
+        
+                    span{
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        transform: rotate(90deg);
+        
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                            object-position: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        .itembody-section{
+            padding: 2rem 0rem;
+            margin-top: 2rem;
+            display: flex;
+            gap: 2rem;
+
+            .details-section{
+                padding: 2rem;
+                width: 45%;
+                h4{
+                    @include m.font-size(32);
+                    @include m.line-height(32);
+                    font-weight: 600;
+                    margin-bottom: 2rem;
+    
+                    span{
+                        &:nth-child(even){
+                            font-weight: 200;
+                        }
+                    }
+                }
+    
+                p{
+                    @include m.font-size(16);
+                    @include m.line-height(24);
+                    font-family: "Outfit", sans-serif;
+                    font-weight: 300;
+                    margin-bottom: 2rem;
+                    color: $gray-color;
+                }
+            }
+
+            .accordian-section{
+                width: 65%;
+            }
+
+        }
+
+    }
+
+    .servicecontact-container{
+        width: 100%;
+        min-height: 70vh;
+        background-color: var(--black-color);
+        position: relative;
+
+        .contactinfo-section{
+            min-height: 70vh;
+            width: var(--lg-screen-maxwidth);
+            min-width: var(--lg-screen-minwidth);
+            margin-inline: auto;
+            color: var(--white-color);
+            padding: 1rem;
+
+            @include m.flex-center;
+            gap: 2rem;
+            flex-direction: column;
+            position: relative;
+            top: 4rem;
+
+            h2{
+                @include m.font-size(74);
+                @include m.line-height(74);
+                font-family: "Outfit", sans-serif;
+                font-weight: 600;
+                color: var(--white-color);
+                text-align: center;
+                margin-bottom: 1rem;
+
+                span{
+                    &:nth-child(even){
+                        font-weight: 100;
+                    }
+                }
+            }
+
+            p{
+                width: 80%;
+                @include m.font-size(20);
+                @include m.line-height(30);
+                font-weight: 200;
+                text-align: center;
+                margin-bottom: 1rem;
+                color: $gray-color;
+
+            }
+
+            .primary-component{
+                min-height: 4rem;
+
+                .action-btn{
+                    height: 3.3rem;
+                    width: 3.3rem;
+
+                    span{
+                        width:22px;
+                        height:22px;
+                    }
+                }
+            }
+        }
+    }
+
+    .bg-layer-topright{
+        position: absolute;
+        top: 3%;
+        right: -10%;
+        opacity: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 2;
+    }
+
+    .bg-layer-bottomleft{
+        position: absolute;
+        bottom: -5%;
+        left: 0%;
+        opacity: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 2;
+    }
+}

@@ -3,6 +3,10 @@ import './routercomponent.scss';
 import Visitorpage from '../pages/visitorpage/Visitorpage';
 import Footercomponent from '../components/footercomponent/Footercomponent';
 import Headercomponent from '../components/headercomponent/Headercomponent';
+import Contactsection from '../pages/contactsection/Contactsection';
+import Privacyandpolicy from '../pages/privacyandpolicy/Privacyandpolicy';
+import Infoservicepage from '../pages/infoservicepage/Infoservicepage';
+import Items from '../pages/infoservicepage/items/Items';
 // import { useColor } from '../contexts/ColorContext';
 
 const Routercomponent = () => {
@@ -22,6 +26,11 @@ const Routercomponent = () => {
 
       <Routes>
         <Route path="/" element={<Visitorpage/>}/>
+        <Route path="/contact" element={<Contactsection/>}/>
+        <Route path="/policy" element={<Privacyandpolicy/>}/>
+        <Route path="/service" element={<Infoservicepage/>}/>
+
+        <Route path="/service/:encoded" element={<Items />} />
       </Routes>
 
       <div className='footer-container'>

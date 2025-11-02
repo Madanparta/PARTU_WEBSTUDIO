@@ -1,0 +1,156 @@
+@use '../../mixins' as m;
+
+$gray-color:#838383;
+
+.policy-component{
+    min-height: 100vh;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    overflow: hidden;
+
+    position: relative;
+
+    .infonav{
+        margin-top: 14rem;
+        display: flex;
+
+        p {
+            margin: 0 0 0 10px;
+            white-space: nowrap;
+            font-family: "Outfit", sans-serif;
+            @include m.font-size(16);
+            @include m.line-height(22);
+            font-weight: 400;
+            color: $gray-color;
+            letter-spacing: 1px;
+
+            span{
+                display: inline-block;
+                margin-right: 1rem;
+                color: var(--black-color);
+                
+                a{
+                    text-decoration: none;
+                    color: var(--black-color);
+                }
+
+                &:last-child{
+                    a{
+                        color: $gray-color;
+                        cursor: default;
+                    }
+                }
+            }
+        }
+
+        .line {
+            width: 40rem; 
+            height: 2px; 
+            background-color: $gray-color;
+            border-radius: 50px;
+            margin-top: 10px;
+        }
+    }
+
+    .policy-container{
+        width: var(--lg-screen-maxwidth);
+        min-width: var(--lg-screen-minwidth);
+        margin-inline: auto;
+
+        .policyheading-section{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 2rem 0rem;
+
+            h2{
+                @include m.font-size(74);
+                @include m.line-height(74);
+                font-family: "Outfit", sans-serif;
+                font-weight: 600;
+                color: var(--black-color);
+                margin-top: 2rem;
+            }
+
+            .arrowdown{
+                width: 43px;
+                height: 43px;
+                border-radius: 50px;
+                background: $gray-color;
+                box-shadow: 0px 2.89px 2.89px 0px rgba(0, 0, 0, 0.25) inset;
+                @include m.flex-center;
+                margin-top: 4rem;
+
+                span{
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    transform: rotate(90deg);
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        object-position: center;
+                    }
+                }
+            }
+        }
+
+        .policybody-section{
+            padding: 2rem 0rem 2rem 0rem;
+            margin-top: 2rem;
+
+            .section{
+                font-family: "Outfit", sans-serif;
+                padding-bottom: 3rem;
+
+                h5{
+                    @include m.font-size(32);
+                    @include m.line-height(32);
+                    font-weight: 600;
+                    color: var(--black-color);
+                    margin-bottom: 1.5rem;
+                }
+                h6{
+                    @include m.font-size(24);
+                    @include m.line-height(24);
+                    font-weight: 600;
+                    color: var(--black-color);
+                    margin-bottom: 1rem;
+                }
+
+                p{
+                    @include m.font-size(16);
+                    @include m.line-height(24);
+                    font-weight: 200;
+                    color: $gray-color;
+
+                    ul{
+                        padding-left: 2rem;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .bg-layer-top{
+        position: absolute;
+        top: 3%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .bg-layer-center{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .bg-layer-bottom{
+        position: absolute;
+        bottom: -12%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}

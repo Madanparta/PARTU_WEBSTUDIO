@@ -20,9 +20,9 @@ const Visitorpage = () => {
 
       <SectionWrapper backgroundColor="black" textColor="white">
         <div className='service-container'>
-            <div className="infonav">
-              <p>Experts crafting your <br />Creative Future</p>
-              <div className='line'></div>
+          <div className="infonav">
+            <p>Experts crafting your <br />Creative Future</p>
+            <div className='line'></div>
           </div>
           <Servicesection/>
         </div>

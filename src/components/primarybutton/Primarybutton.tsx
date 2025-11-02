@@ -1,10 +1,14 @@
 import './primarybutton.scss';
 import rightarrow from '../../assets/svgs/right-arrow.svg';
+import type { FC } from 'react';
 
-const Primarybutton = () => {
+interface PrimarybuttonProps {
+  text?:string;
+}
+const Primarybutton:FC<PrimarybuttonProps> = ({text="WHAT WE DO"}) => {
   return (
     <div className='primary-component'>
-      <span>WHAT WE DO</span>
+      <span>{text}</span>
 
       <div className='action-btn'>
         <span>
