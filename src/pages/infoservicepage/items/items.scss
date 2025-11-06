@@ -47,7 +47,7 @@ $gray-color:#838383;
 
         .line {
             width: 25rem; 
-            height: 2px; 
+            height: 1px; 
             background-color: $gray-color;
             border-radius: 50px;
             margin-top: 10px;
@@ -55,7 +55,7 @@ $gray-color:#838383;
     }
 
     .item-container{
-        width: var(--lg-screen-maxwidth);
+        width: min(var(--lg-screen-minwidth), 92%);
         min-width: var(--lg-screen-minwidth);
         margin-inline: auto;
 
@@ -159,7 +159,7 @@ $gray-color:#838383;
 
         .contactinfo-section{
             min-height: 70vh;
-            width: var(--lg-screen-maxwidth);
+            width: min(var(--lg-screen-minwidth), 92%);
             min-width: var(--lg-screen-minwidth);
             margin-inline: auto;
             color: var(--white-color);
@@ -218,7 +218,7 @@ $gray-color:#838383;
         position: absolute;
         top: 3%;
         right: -10%;
-        opacity: 50%;
+        opacity:30%;
         transform: translate(-50%,-50%);
         z-index: 2;
     }
@@ -227,8 +227,195 @@ $gray-color:#838383;
         position: absolute;
         bottom: -5%;
         left: 0%;
-        opacity: 50%;
+        opacity: 30%;
         transform: translate(-50%,-50%);
         z-index: 2;
+    }
+}
+
+@include m.max-media(desktop){
+    .items-component{
+        .infonav{
+            p {
+                @include m.font-size(16);
+                @include m.line-height(22);
+            }
+
+            .line {
+                width: 30rem; 
+            }
+        }
+
+        .item-container{
+            .itembody-section{
+                h4{
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+}
+
+@include m.max-media(laptop){
+    .items-component{
+        .infonav{
+            p {
+                @include m.font-size(16);
+                @include m.line-height(22);
+            }
+
+            .line {
+                width: 30rem; 
+            }
+        }
+
+        .item-container{
+            .itemheading-section{
+                h2{
+                    @include m.font-size(54);
+                    @include m.line-height(54);
+                    margin-top: 1.5rem;
+                }
+            }
+            .itembody-section{
+                h4{
+                    letter-spacing: 1px;
+                }
+            }
+        }
+
+        .servicecontact-container{
+            .contactinfo-section{
+                h2{
+                    @include m.font-size(54);
+                    @include m.line-height(54);
+                }
+
+                p{
+                    @include m.font-size(16);
+                    @include m.line-height(22);
+                }
+            }
+        }
+    }
+}
+
+@include m.max-media(tablet){
+    .items-component{
+        .infonav{
+            p {
+                @include m.font-size(16);
+                @include m.line-height(22);
+            }
+
+            .line {
+                width: 20rem; 
+            }
+        }
+
+        .item-container{
+            min-width: 100%;
+            padding-inline: 2rem;
+            .itemheading-section{
+                h2{
+                    @include m.font-size(54);
+                    @include m.line-height(54);
+                    margin-top: 1.5rem;
+                }
+            }
+            .itembody-section{
+                display: flex;
+                flex-direction: column;
+
+                .details-section{
+                    width: 100%;
+
+                    h4{
+                        letter-spacing: 2px;
+                        @include m.line-height(38);
+                    }
+                }
+
+                .accordian-section{
+                    width: 100%;
+                }
+
+            }
+        }
+
+        .servicecontact-container{
+            min-height: 60vh;
+            .contactinfo-section{
+                min-width: 100%;
+                min-height: 60vh;
+
+                h2{
+                    @include m.font-size(54);
+                    @include m.line-height(54);
+                }
+
+                p{
+                    @include m.font-size(16);
+                    @include m.line-height(22);
+                }
+            }
+        }
+    }
+}
+
+@include m.max-media(mobile){
+    .items-component{
+        .infonav{
+            .line {
+                width: 8rem;
+            }
+        }
+
+        .item-container{
+            min-width: 100%;
+            padding-inline: 0.5rem;
+
+            .itemheading-section{
+                h2{
+                    @include m.font-size(48);
+                    @include m.line-height(48);
+                }
+            }
+            .itembody-section{
+                display: flex;
+                flex-direction: column;
+
+                .details-section{
+                    width: 100%;
+
+                    h4{
+                        letter-spacing: 2px;
+                        @include m.line-height(38);
+                    }
+                }
+
+                .accordian-section{
+                    width: 100%;
+                }
+
+            }
+        }
+
+        .servicecontact-container{
+            min-height: 80vh;
+            .contactinfo-section{
+                min-height: 80vh;
+
+                h2{
+                    @include m.font-size(48);
+                    @include m.line-height(48);
+                }
+
+                p{
+                    @include m.font-size(16);
+                    @include m.line-height(22);
+                }
+            }
+        }
     }
 }

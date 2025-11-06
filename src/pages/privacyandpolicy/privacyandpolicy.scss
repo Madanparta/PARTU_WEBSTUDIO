@@ -45,7 +45,7 @@ $gray-color:#838383;
 
         .line {
             width: 40rem; 
-            height: 2px; 
+            height: 1px; 
             background-color: $gray-color;
             border-radius: 50px;
             margin-top: 10px;
@@ -139,18 +139,101 @@ $gray-color:#838383;
         position: absolute;
         top: 3%;
         left: 50%;
+        opacity: 0.3;
         transform: translate(-50%,-50%);
     }
     .bg-layer-center{
         position: absolute;
         top: 50%;
         left: 50%;
+        opacity: 0.3;
         transform: translate(-50%,-50%);
     }
     .bg-layer-bottom{
         position: absolute;
         bottom: -12%;
         left: 50%;
+        opacity: 0.3;
         transform: translate(-50%,-50%);
+    }
+}
+
+@include m.max-media(desktop){
+    .policy-component{
+        .infonav{
+            p {
+                @include m.font-size(16);
+                @include m.line-height(22);
+            }
+
+            .line {
+                width: 30rem; 
+            }
+        }
+
+        .policy-container{
+            width: min(var(--lg-screen-minwidth), 92%);
+            min-width: var(--lg-screen-minwidth);
+
+            .policyheading-section{
+                h2{
+                    @include m.font-size(62);
+                    @include m.line-height(62);
+                    margin-top: 1.5rem;
+                }
+                
+            }
+        }
+    }
+}
+
+@include m.max-media(tablet){
+    .policy-component{
+        .infonav{
+            p {
+                @include m.font-size(14);
+                @include m.line-height(20);
+            }
+
+            .line {
+                width: 15rem; 
+            }
+        }
+
+        .policy-container{
+            min-width: 100%;
+            padding: 0rem 2rem;
+
+            .policyheading-section{
+                h2{
+                    @include m.font-size(48);
+                    @include m.line-height(48);
+                }
+                
+            }
+        }
+    }
+}
+
+@include m.max-media(mobile){
+    .policy-component{
+        .infonav{
+            .line {
+                width: 8rem; 
+            }
+        }
+
+        .policy-container{
+            min-width: 100%;
+            padding: 0rem 2rem;
+
+            .policyheading-section{
+                h2{
+                    @include m.font-size(48);
+                    @include m.line-height(48);
+                }
+                
+            }
+        }
     }
 }
