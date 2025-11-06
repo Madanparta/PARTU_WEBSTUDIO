@@ -4,18 +4,20 @@ import type { FC } from 'react';
 
 interface PrimarybuttonProps {
   text?:string;
+  onClick?: () => void;
+  ariaLabel?: string;
 }
-const Primarybutton:FC<PrimarybuttonProps> = ({text="WHAT WE DO"}) => {
+const Primarybutton:FC<PrimarybuttonProps> = ({text="WHAT WE DO", onClick, ariaLabel}) => {
   return (
-    <div className='primary-component'>
-      <span>{text}</span>
+    <button className='primary-component' type='button' onClick={onClick} aria-label={ariaLabel ?? text}>
+      <span className="primary-text">{text}</span>
 
       <div className='action-btn'>
-        <span>
+        <span className="action-btn" aria-hidden="true">
             <img src={rightarrow} alt="" />
         </span>
       </div>
-    </div>
+    </button>
   )
 }
 

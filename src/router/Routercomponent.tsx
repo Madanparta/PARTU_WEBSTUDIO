@@ -21,7 +21,7 @@ const Routercomponent = () => {
       </nav> */}
 
       <div className="header-container">
-        <Headercomponent/>
+        {/* <Headercomponent/> */}
       </div>
 
       <Routes>

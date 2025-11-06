@@ -46,3 +46,51 @@ $gray-color:#838383;
         background-color: var(--white-color);
     }
 }
+
+@include m.max-media(laptop){
+    .visiter-container{
+        .service-container{
+            .infonav{
+                p{
+                    @include m.font-size(16);
+                    @include m.line-height(20);
+                }
+                .line{
+                    width: 30rem;
+                }
+            }
+        }
+    }
+}
+
+@include m.max-media(tablet){
+    .visiter-container{
+        .service-container{
+            .infonav{
+                p{
+                    @include m.font-size(14);
+                    @include m.line-height(18);
+                }
+                .line{
+                    width: 20rem;
+                }
+            }
+        }
+    }
+}
+
+@include m.max-media(mobile){
+    .visiter-container{
+        .service-container{
+            .infonav{
+                p{
+                    @include m.font-size(14);
+                    @include m.line-height(18);
+                }
+                .line{
+                    width: 10rem;
+                }
+            }
+        }
+    }
+}

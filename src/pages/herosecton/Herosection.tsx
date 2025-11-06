@@ -22,7 +22,7 @@ const Herosection = () => {
         <div className="scoll-component">
             <Scrolldowncircle/>
         </div>
-        <div style={{ width: '100%', height: '800px', position: 'relative' }}>
+        <div className='threads-wrapper'>
             <Threads
                 amplitude={1}
                 distance={0}

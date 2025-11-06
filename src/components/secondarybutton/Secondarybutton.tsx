@@ -1,17 +1,22 @@
 import './secondarybutton.scss';
 import rightarrow from '../../assets/svgs/right-arrow.svg';
 
-const Secondarybutton = () => {
-  return (
-    <div className='secondary-component'>
-      <span>DISCUSS A PROJECT</span>
+interface SecondarybuttonProps {
+  text?: string;
+  onClick?: () => void;
+  ariaLabel?: string;
+}
 
-      <div className='action-btn'>
-        <span>
-            <img src={rightarrow} alt="" />
-        </span>
-      </div>
-    </div>
+const Secondarybutton = ({ text = 'DISCUSS A PROJECT', onClick, ariaLabel }: SecondarybuttonProps) => {
+  return (
+    <button className='secondary-component' type="button" onClick={onClick} aria-label={ariaLabel ?? text}>
+      <span className="secondary-text">{text}</span>
+
+
+      <span className="action-btn" aria-hidden="true">
+          <img src={rightarrow} alt="" />
+      </span>
+    </button>
   )
 }
 
