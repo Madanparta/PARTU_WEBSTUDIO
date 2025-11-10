@@ -158,7 +158,6 @@ const Contactsection = () => {
         });
 
         if(response.status === 200){
-          // await sendWhatsAppNotification(formData);
           alert('Thank you for your message! We will get back to you soon.'); 
           setIsSubmitting(false);
           setFormData({

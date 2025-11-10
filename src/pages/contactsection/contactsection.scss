@@ -84,11 +84,6 @@ $warning-color: #f39c12;
         font-weight: 600;
         color: var(--black-color);
         margin-top: 2rem;
-        transition: transform 0.3s ease;
-
-        &:hover {
-          transform: translateY(-2px);
-        }
       }
 
       .arrowdown {
@@ -118,7 +113,7 @@ $warning-color: #f39c12;
         }
 
         &:hover {
-          background: darken($gray-color, 10%);
+          background: $gray-color;
           transform: translateY(-2px);
 
           &::before {
@@ -159,23 +154,13 @@ $warning-color: #f39c12;
         font-weight: 500;
         text-align: center;
         margin-bottom: 4rem;
-        transition: transform 0.3s ease;
-
-        &:hover {
-          transform: scale(1.02);
-        }
 
         span {
           display: inline-block;
-          transition: transform 0.3s ease;
 
           &:last-child {
             font-weight: 200;
             margin-left: 0.5rem;
-          }
-
-          &:hover {
-            transform: translateY(-2px);
           }
         }
       }
@@ -254,7 +239,7 @@ $warning-color: #f39c12;
           }
 
           &:hover {
-            border-bottom-color: darken($gray-color, 20%);
+            border-bottom-color: $gray-color;
           }
         }
 

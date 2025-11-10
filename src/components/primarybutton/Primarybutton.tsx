@@ -26,7 +26,7 @@ const Primarybutton: FC<PrimarybuttonProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
 
-  const handleClick = (e: React.MouseEvent) => {
+  const handleClick = (_e: React.MouseEvent) => {
     if (!disabled && !loading && onClick) {
       onClick();
     }

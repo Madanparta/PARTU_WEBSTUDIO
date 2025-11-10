@@ -1,7 +1,7 @@
 @use '../../mixins' as m;
 
 $primary-gradient: linear-gradient(90deg, #FF007F -93.73%, #7A00FF 96.55%);
-$primary-gradient-hover: linear-gradient(90deg, darken(#FF007F, 5%) -93.73%, darken(#7A00FF, 5%) 96.55%);
+$primary-gradient-hover: linear-gradient(90deg, rgba(255, 0, 127, 0.9) -93.73%, rgba(122, 0, 255, 0.9) 96.55%);
 $btn-bg-dark: var(--black-color);
 $disabled-opacity: 0.6;
 

@@ -28,7 +28,7 @@ const cardData  = [
 const Servicesection = () => {
   const navigate = useNavigate();
 
-  const handleCardClick = useCallback((index:number) => {
+  const handleCardClick = useCallback((_index:number) => {
     navigate("/service");
   }, []);
 

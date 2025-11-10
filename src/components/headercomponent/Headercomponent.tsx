@@ -49,14 +49,12 @@ const Headercomponent = () => {
         setIsActive(false);
         
         if (path === '/#about') {
-            // Scroll to about section on home page
             if (location.pathname === '/') {
                 const aboutSection = document.getElementById('about');
                 if (aboutSection) {
                     aboutSection.scrollIntoView({ behavior: 'smooth' });
                 }
             } else {
-                // Navigate to home and then scroll to about
                 navigate('/');
                 setTimeout(() => {
                     const aboutSection = document.getElementById('about');
@@ -66,7 +64,6 @@ const Headercomponent = () => {
                 }, 100);
             }
         } else {
-            // Regular navigation
             navigate(path);
         }
     };
