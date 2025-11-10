@@ -3,9 +3,11 @@ import './infoservicepage.scss';
 import BG from '../../assets/svgs/BG.svg';
 import arrowbottom from '../../assets/svgs/right-arrow.svg';
 import Primarybutton from '../../components/primarybutton/Primarybutton';
+import { useState } from 'react';
 
 const Infoservicepage = () => {
     const navigation = useNavigate();
+    const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
     const item1 = btoa("Branding & Identity Design");
     const item2 = btoa("Digital Marketing");
@@ -15,6 +17,15 @@ const Infoservicepage = () => {
     const handleNavigation = (item:string) =>{
         navigation(`/service/${item}`);
     }
+
+    const handleCardHover = (cardId: string) => {
+        setHoveredCard(cardId);
+    }
+
+    const handleCardLeave = () => {
+        setHoveredCard(null);
+    }
+
   return (
     <div className='infoservice-component'>
         <div className="infonav">
@@ -48,7 +59,11 @@ const Infoservicepage = () => {
             <div className='infoservicebody-section'>
                 <div className='cards-section'>
 
-                    <div className="card-section">
+                    <div 
+                        className={`card-section ${hoveredCard === 'branding' ? 'card-hover' : ''}`}
+                        onMouseEnter={() => handleCardHover('branding')}
+                        onMouseLeave={handleCardLeave}
+                    >
                         <h4>Branding & Identity <br />Design</h4>
                         <p className='info'>Elevate your brand's presence!</p>
 
@@ -64,7 +79,7 @@ const Infoservicepage = () => {
 
                         <div className='moreifno'>
                             <p>READ MORE</p>
-                            <div className='arrowdown' onClick={()=>handleNavigation(item1)}>
+                            <div className='arrowdown interactive-arrow' onClick={()=>handleNavigation(item1)}>
                                 <span>
                                     <img src={arrowbottom} alt="" />
                                 </span>
@@ -72,7 +87,11 @@ const Infoservicepage = () => {
                         </div>
                     </div>
 
-                    <div className="card-section">
+                    <div 
+                        className={`card-section ${hoveredCard === 'marketing' ? 'card-hover' : ''}`}
+                        onMouseEnter={() => handleCardHover('marketing')}
+                        onMouseLeave={handleCardLeave}
+                    >
                         <h4>Digital <br /> Marketing</h4>
                         <p className='info'>Empower your brand's digital footprint!</p>
 
@@ -87,7 +106,7 @@ const Infoservicepage = () => {
 
                         <div className='moreifno'>
                             <p>READ MORE</p>
-                            <div className='arrowdown' onClick={()=>handleNavigation(item2)}>
+                            <div className='arrowdown interactive-arrow' onClick={()=>handleNavigation(item2)}>
                                 <span>
                                     <img src={arrowbottom} alt="" />
                                 </span>
@@ -99,7 +118,11 @@ const Infoservicepage = () => {
 
                 <div className='cards-section'>
 
-                    <div className="card-section">
+                    <div 
+                        className={`card-section ${hoveredCard === 'design' ? 'card-hover' : ''}`}
+                        onMouseEnter={() => handleCardHover('design')}
+                        onMouseLeave={handleCardLeave}
+                    >
                         <h4>UI / UX <br /> Design</h4>
                         <p className='info'>Transform user experiences into unforgettable journeys!</p>
 
@@ -114,7 +137,7 @@ const Infoservicepage = () => {
 
                         <div className='moreifno'>
                             <p>READ MORE</p>
-                            <div className='arrowdown' onClick={()=>handleNavigation(item3)}>
+                            <div className='arrowdown interactive-arrow' onClick={()=>handleNavigation(item3)}>
                                 <span>
                                     <img src={arrowbottom} alt="" />
                                 </span>
@@ -122,7 +145,11 @@ const Infoservicepage = () => {
                         </div>
                     </div>
 
-                    <div className="card-section">
+                    <div 
+                        className={`card-section ${hoveredCard === 'development' ? 'card-hover' : ''}`}
+                        onMouseEnter={() => handleCardHover('development')}
+                        onMouseLeave={handleCardLeave}
+                    >
                         <h4>Web & Mobile <br /> App Development</h4>
                         <p className='info'>Embark on a digital journey tailored to your vision!</p>
 
@@ -138,7 +165,7 @@ const Infoservicepage = () => {
 
                         <div className='moreifno'>
                             <p>READ MORE</p>
-                            <div className='arrowdown' onClick={()=>handleNavigation(item4)}>
+                            <div className='arrowdown interactive-arrow' onClick={()=>handleNavigation(item4)}>
                                 <span>
                                     <img src={arrowbottom} alt="" />
                                 </span>

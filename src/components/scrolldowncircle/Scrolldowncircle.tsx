@@ -15,7 +15,6 @@ const Scrolldowncircle = () => {
             const deltaTime = currentTime - lastTime.current;
 
             const speed = deltaY / deltaTime;
-
             setRotation((prev) => prev + speed * 3);
 
             lastScrollY.current = currentY;
@@ -26,8 +25,25 @@ const Scrolldowncircle = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const handleScrollDown = () => {
+        setTimeout(() => {
+            const nextSection = document.querySelector('.about-container');
+            if (nextSection) {
+                nextSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                window.scrollBy({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }, 300);
+    };
+
     return (
-        <div className='circle-component'>
+        <div className='circle-component' onClick={handleScrollDown}>
             <div className="scroll-circle-container" style={{ transform: `rotate(${rotation}deg)` }}>
                 <svg viewBox="0 0 200 200" className="scroll-circle-text" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -48,4 +64,4 @@ const Scrolldowncircle = () => {
     )
 }
 
-export default Scrolldowncircle
+export default Scrolldowncircle;

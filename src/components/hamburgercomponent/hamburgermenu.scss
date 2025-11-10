@@ -47,3 +47,10 @@ $footer-gray:#d4d4d492;
     }
   }
 }
+
+@include m.max-media(mobile){
+  .menu-container {
+    width: 1.8rem;
+    height: 1.3rem;
+  }
+}

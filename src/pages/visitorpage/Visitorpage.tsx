@@ -13,7 +13,7 @@ const Visitorpage = () => {
       </SectionWrapper>
 
       <SectionWrapper backgroundColor="white" textColor="black">
-        <div className="about-container">
+        <div className="about-container" id="about">
           <Aboutsection/>
         </div>
       </SectionWrapper>
@@ -33,7 +33,6 @@ const Visitorpage = () => {
           <Aboutsection2/>
         </div>
       </SectionWrapper>
-
     </div>
   )
 }

@@ -15,6 +15,7 @@ $gray-color:#838383;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
+        padding-bottom: 4rem;
 
         .z-layout {
             display: flex;
@@ -97,14 +98,15 @@ $gray-color:#838383;
 
         .cardcontainer{
             width: 100%;
-            max-height: 333px;
-            min-height: 300px;
+            max-height: 444px;
+            min-height: 350px;
             padding: 2rem;
             border-top: 1px solid $gray-color;
             border-right: 1px solid $gray-color;
             border-bottom: 0;
             border-left: 1px solid $gray-color;
             position: relative;
+            cursor: pointer;
 
             h4{
                 @include m.font-size(24);

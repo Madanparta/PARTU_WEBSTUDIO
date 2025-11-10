@@ -100,12 +100,19 @@ $gray-color:#838383;
                     background: $gray-color;
                     box-shadow: 0px 2.89px 2.89px 0px rgba(0, 0, 0, 0.25) inset;
                     @include m.flex-center;
+                    transform: translateY(0px);
+                    transition: transform 0.3s ease;
+
+                    &:hover{
+                        transform: translateY(-2px);
+                    }
 
                     span{
                         display: inline-block;
                         width: 20px;
                         height: 20px;
                         transform: rotate(90deg);
+                        transition: transform 0.3s ease;
 
                         img{
                             width: 100%;
@@ -130,7 +137,16 @@ $gray-color:#838383;
 
                 .card-section{
                     width: 100%;
-                    padding: 1rem;
+                    padding: 2rem;
+                    border-radius: 12px;
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+
+                    &.card-hover{
+                        transform: translateY(-5px);
+                        background: rgba(255, 255, 255, 0.05);
+                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                    }
 
                     &:nth-child(even){
                         position: relative;
@@ -143,14 +159,18 @@ $gray-color:#838383;
                         font-weight: 600;
                         font-family: "Outfit", sans-serif;
                         margin-bottom: 2rem;
+                        transition: color 0.3s ease;
                     }
 
                     .info{
                         color: $gray-color;
                         @include m.font-size(16);
                         @include m.line-height(20);
-                        font-weight: 600;
+                        font-weight: 400;
+                        word-spacing: 2px;
+                        letter-spacing: 1px;
                         margin-bottom: 1.5rem;
+                        transition: color 0.3s ease;
                     }
 
                     ul{
@@ -158,12 +178,19 @@ $gray-color:#838383;
                         padding-left: 1rem;
                         li{
                             margin-bottom: 2rem;
+                            transition: transform 0.2s ease;
+                            
+                            &:hover{
+                                transform: translateX(5px);
+                            }
+
                             p{
                                 color: $gray-color;
                                 @include m.font-size(16);
                                 @include m.line-height(20);
-                                font-weight: 700;
-                                letter-spacing: 1px;
+                                font-weight: 400;
+                                letter-spacing: 2px;
+                                transition: color 0.3s ease;
                             }
                         }
                     }
@@ -177,7 +204,26 @@ $gray-color:#838383;
                             @include m.font-size(16);
                             @include m.line-height(20);
                             font-weight: 700;
-                            letter-spacing: 1px
+                            letter-spacing: 1px;
+                            transition: color 0.3s ease;
+                        }
+
+                        .interactive-arrow{
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+
+                            &:hover{
+                                background: var(--white-color);
+                                transform: scale(1.1);
+
+                                span img{
+                                    filter: brightness(0) saturate(100%);
+                                }
+                            }
+
+                            &:active{
+                                transform: scale(0.95);
+                            }
                         }
 
                         .arrowdown{
@@ -192,6 +238,7 @@ $gray-color:#838383;
                                 display: inline-block;
                                 width: 16px;
                                 height: 16px;
+                                transition: transform 0.3s ease;
 
                                 img{
                                     width: 100%;
@@ -199,8 +246,15 @@ $gray-color:#838383;
                                     object-fit: contain;
                                     object-position: center;
                                     filter: brightness(0) saturate(100%) invert(100%);
+                                    transition: filter 0.3s ease;
                                 }
                             }
+                        }
+                    }
+
+                    &:hover{
+                        h4, .info, ul li p{
+                            color: var(--white-color);
                         }
                     }
                 }

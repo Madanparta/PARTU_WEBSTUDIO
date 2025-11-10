@@ -2,7 +2,7 @@ import { Routes,Route } from 'react-router-dom';
 import './routercomponent.scss';
 import Visitorpage from '../pages/visitorpage/Visitorpage';
 import Footercomponent from '../components/footercomponent/Footercomponent';
-// import Headercomponent from '../components/headercomponent/Headercomponent';
+import Headercomponent from '../components/headercomponent/Headercomponent';
 import Contactsection from '../pages/contactsection/Contactsection';
 import Privacyandpolicy from '../pages/privacyandpolicy/Privacyandpolicy';
 import Infoservicepage from '../pages/infoservicepage/Infoservicepage';
@@ -21,7 +21,7 @@ const Routercomponent = () => {
       </nav> */}
 
       <div className="header-container">
-        {/* <Headercomponent/> */}
+        <Headercomponent/>
       </div>
 
       <Routes>
