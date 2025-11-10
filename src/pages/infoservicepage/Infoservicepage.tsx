@@ -3,11 +3,12 @@ import './infoservicepage.scss';
 import BG from '../../assets/svgs/BG.svg';
 import arrowbottom from '../../assets/svgs/right-arrow.svg';
 import Primarybutton from '../../components/primarybutton/Primarybutton';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const Infoservicepage = () => {
     const navigation = useNavigate();
     const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+    const servicesSectionRef = useRef<HTMLDivElement>(null);
 
     const item1 = btoa("Branding & Identity Design");
     const item2 = btoa("Digital Marketing");
@@ -24,6 +25,18 @@ const Infoservicepage = () => {
 
     const handleCardLeave = () => {
         setHoveredCard(null);
+    }
+
+    const scrollToServices = () => {
+        const el = servicesSectionRef.current;
+        if (el) {
+            setTimeout(()=>{
+                el.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            },300)
+        }
     }
 
   return (
@@ -46,9 +59,9 @@ const Infoservicepage = () => {
                 </h2>
 
                 <div className='infosercicesubheading-section'>
-                    <h4>OUR SERVICES</h4>
+                    <h4 onClick={scrollToServices}>OUR SERVICES</h4>
 
-                    <div className='arrowdown'>
+                    <div className='arrowdown interactive-arrow' onClick={scrollToServices}>
                         <span>
                             <img src={arrowbottom} alt="" />
                         </span>
@@ -56,7 +69,7 @@ const Infoservicepage = () => {
                 </div>
             </div>
 
-            <div className='infoservicebody-section'>
+            <div className='infoservicebody-section' ref={servicesSectionRef}>
                 <div className='cards-section'>
 
                     <div 

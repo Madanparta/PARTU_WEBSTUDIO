@@ -4,10 +4,12 @@ import arrowbottom from '../../../assets/svgs/right-arrow.svg';
 import Accordian from '../../../components/accordian/Accordian';
 import Primarybutton from '../../../components/primarybutton/Primarybutton';
 import BG from '../../../assets/svgs/BG.svg';
+import { useRef } from 'react';
 
 const Items = () => {
     const {encoded} = useParams();
     const decoded = atob(encoded as string);
+    const itemsSelectedRef = useRef<HTMLDivElement>(null);
 
     const accordionItems1 = [
         {
@@ -105,6 +107,18 @@ const Items = () => {
             content: "Integrating AI and machine learning into new or existing products is pivotal to meeting the demands of today's users. By leveraging advanced algorithms and data analytics, we enhance user experiences by delivering personalized and predictive functionalities. \n \n Whether it's optimizing recommendations, automating processes, or improving decision-making, AI integration empowers products to adapt and evolve in real-time, ensuring they remain relevant and valuable in an ever-changing landscape. Through this integration, we strive to not only meet but exceed user expectations, delivering products that are intuitive, efficient, and tailored to individual needs."
         },
     ];
+
+    const scrollToServices = () => {
+        const el = itemsSelectedRef.current;
+        if(el){
+            setTimeout(() => {
+                el.scrollIntoView({
+                    behavior:'smooth',
+                    block:"start"
+                })
+            }, 300);
+        }
+    }
   return (
     <div className='items-component'>
         <div className="infonav">
@@ -132,7 +146,7 @@ const Items = () => {
                 }
 
                 <div className='itemsubheading-section'>
-                    <div className='arrowdown'>
+                    <div className='arrowdown' onClick={scrollToServices}>
                         <span>
                             <img src={arrowbottom} alt="" />
                         </span>
@@ -140,90 +154,93 @@ const Items = () => {
                 </div>
             </div>
 
-            {
-                decoded === "Branding & Identity Design" && (
+            <div aria-hidden="true" ref={itemsSelectedRef}>
+                {
+                    decoded === "Branding & Identity Design" && (
 
-                    <div className="itembody-section">
+                        <div className="itembody-section">
 
-                        <div className="details-section">
-                            <h4><span>Elevate </span> <span>Your <br /></span> <span>Brand's </span> <span>Presence!</span></h4>
+                            <div className="details-section">
+                                <h4><span>Elevate </span> <span>Your <br /></span> <span>Brand's </span> <span>Presence!</span></h4>
 
-                            <p>At the core of our approach is the seamless integration of strategic insights and captivating design. This synergy allows us to not only understand the intricacies of your brand but also to translate that understanding into visually compelling elements. By delving deep into your brand's essence and analyzing market dynamics, we uncover valuable insights that inform every design decision.</p>
-                            <p>With this strategic foundation in place, we embark on the creative process, where each design choice is purposefully crafted to reinforce your brand narrative. From logo design to color schemes, typography to imagery, every visual element is carefully curated to resonate with your audience and convey your brand's message effectively. This cohesive approach ensures that your brand remains consistent and memorable across all visual touchpoints, leaving a lasting impression that resonates with your audience long after the initial interaction.</p>
+                                <p>At the core of our approach is the seamless integration of strategic insights and captivating design. This synergy allows us to not only understand the intricacies of your brand but also to translate that understanding into visually compelling elements. By delving deep into your brand's essence and analyzing market dynamics, we uncover valuable insights that inform every design decision.</p>
+                                <p>With this strategic foundation in place, we embark on the creative process, where each design choice is purposefully crafted to reinforce your brand narrative. From logo design to color schemes, typography to imagery, every visual element is carefully curated to resonate with your audience and convey your brand's message effectively. This cohesive approach ensures that your brand remains consistent and memorable across all visual touchpoints, leaving a lasting impression that resonates with your audience long after the initial interaction.</p>
+                            </div>
+
+                            <div className="accordian-section">
+                                <Accordian items={accordionItems1}/>
+                            </div>
+
                         </div>
 
-                        <div className="accordian-section">
-                            <Accordian items={accordionItems1}/>
+                    )
+                }
+
+                {
+                    decoded === "Digital Marketing" && (
+
+                        <div className="itembody-section">
+
+                            <div className="details-section">
+                                <h4><span>Empower </span> <span>Your <br /></span> <span>Brand's </span> <span>Digital Footprint</span></h4>
+
+                                <p>In an ever-evolving digital landscape, we stay ahead of the curve by harnessing the latest trends and insights. Through meticulous analysis and creative innovation, we craft targeted campaigns designed to captivate your audience and drive meaningful engagement. By leveraging the power of data-driven strategies, we propel your brand to the forefront of the digital realm, ensuring that your message resonates effectively in today's dynamic environment.</p>
+                                <p>Our approach is rooted in a deep understanding of consumer behavior and market dynamics. We don't just follow trends; we anticipate them, allowing us to create campaigns that speak directly to your audience's interests and preferences. With a focus on authenticity and relevance, we ensure that every interaction with your brand leaves a lasting impression, establishing a strong and enduring connection with your audience.</p>
+                            </div>
+
+                            <div className="accordian-section">
+                                <Accordian items={accordionItems2}/>
+                            </div>
+
                         </div>
 
-                    </div>
+                    )
+                }
 
-                )
-            }
+                {
+                    decoded === "UI/UX Design" && (
 
-            {
-                decoded === "Digital Marketing" && (
+                        <div className="itembody-section">
 
-                    <div className="itembody-section">
+                            <div className="details-section">
+                                <h4><span>Transform </span> <span>User Experiences <br /></span> <span>into </span> <span>Unforgettable Journeys!</span></h4>
 
-                        <div className="details-section">
-                            <h4><span>Empower </span> <span>Your <br /></span> <span>Brand's </span> <span>Digital Footprint</span></h4>
+                                <p>In our design philosophy, we seamlessly blend both UI (User Interface) and UX (User Experience) principles to create captivating and engaging interfaces. By combining intuitive UI elements with a deep understanding of user behavior, we ensure that every interaction is both visually appealing and user-friendly.</p>
+                                <p>Our UX design focuses on optimizing the entire user journey, from simplifying complex processes to enhancing accessibility. Through thorough research and iterative testing, we refine the user experience to resonate deeply with your audience, fostering long-term engagement and brand loyalty.</p>
+                                <p>Together, our integrated UI and UX design approach empower your brand to deliver seamless experiences that delight users and drive meaningful connections. Trust us to elevate your digital presence with interfaces that not only look stunning but also enrich the lives of your audience.</p>
+                            </div>
 
-                            <p>In an ever-evolving digital landscape, we stay ahead of the curve by harnessing the latest trends and insights. Through meticulous analysis and creative innovation, we craft targeted campaigns designed to captivate your audience and drive meaningful engagement. By leveraging the power of data-driven strategies, we propel your brand to the forefront of the digital realm, ensuring that your message resonates effectively in today's dynamic environment.</p>
-                            <p>Our approach is rooted in a deep understanding of consumer behavior and market dynamics. We don't just follow trends; we anticipate them, allowing us to create campaigns that speak directly to your audience's interests and preferences. With a focus on authenticity and relevance, we ensure that every interaction with your brand leaves a lasting impression, establishing a strong and enduring connection with your audience.</p>
+                            <div className="accordian-section">
+                                <Accordian items={accordionItems3}/>
+                            </div>
+
                         </div>
 
-                        <div className="accordian-section">
-                            <Accordian items={accordionItems2}/>
+                    )
+                }
+
+                {
+                    decoded === "Web & Mobile App Development" && (
+
+                        <div className="itembody-section">
+
+                            <div className="details-section">
+                                <h4><span>Embark </span> <span>on a Digital Journey <br /></span> <span>Tailored to </span> <span>Your Vision!</span></h4>
+
+                                <p>At the heart of our approach to digital solutions lies a deep integration of cutting-edge technology, versatile platforms, and robust frameworks, complemented by intuitive UI/UX design. We leverage the latest advancements in technology to ensure that your product not only meets but exceeds industry standards. From frontend development using modern frameworks like React.js or Vue.js to backend infrastructure built on reliable technologies such as Node.js or Django, we employ a comprehensive tech stack tailored to your project's unique needs.</p>
+                                <p>Furthermore, our expertise extends beyond initial development to encompass ongoing backend support and maintenance. We understand the importance of keeping your digital assets running smoothly and securely. That's why we offer dedicated support services to address any technical issues, implement updates, and ensure optimal performance over time. With our proactive approach to maintenance and support, you can rest assured that your digital solutions will continue to thrive long after the initial launch, providing lasting value to your business and users alike.</p>
+                            </div>
+
+                            <div className="accordian-section">
+                                <Accordian items={accordionItems4}/>
+                            </div>
+
                         </div>
 
-                    </div>
+                    )
+                }
+            </div>
 
-                )
-            }
-
-            {
-                decoded === "UI/UX Design" && (
-
-                    <div className="itembody-section">
-
-                        <div className="details-section">
-                            <h4><span>Transform </span> <span>User Experiences <br /></span> <span>into </span> <span>Unforgettable Journeys!</span></h4>
-
-                            <p>In our design philosophy, we seamlessly blend both UI (User Interface) and UX (User Experience) principles to create captivating and engaging interfaces. By combining intuitive UI elements with a deep understanding of user behavior, we ensure that every interaction is both visually appealing and user-friendly.</p>
-                            <p>Our UX design focuses on optimizing the entire user journey, from simplifying complex processes to enhancing accessibility. Through thorough research and iterative testing, we refine the user experience to resonate deeply with your audience, fostering long-term engagement and brand loyalty.</p>
-                            <p>Together, our integrated UI and UX design approach empower your brand to deliver seamless experiences that delight users and drive meaningful connections. Trust us to elevate your digital presence with interfaces that not only look stunning but also enrich the lives of your audience.</p>
-                        </div>
-
-                        <div className="accordian-section">
-                            <Accordian items={accordionItems3}/>
-                        </div>
-
-                    </div>
-
-                )
-            }
-
-            {
-                decoded === "Web & Mobile App Development" && (
-
-                    <div className="itembody-section">
-
-                        <div className="details-section">
-                            <h4><span>Embark </span> <span>on a Digital Journey <br /></span> <span>Tailored to </span> <span>Your Vision!</span></h4>
-
-                            <p>At the heart of our approach to digital solutions lies a deep integration of cutting-edge technology, versatile platforms, and robust frameworks, complemented by intuitive UI/UX design. We leverage the latest advancements in technology to ensure that your product not only meets but exceeds industry standards. From frontend development using modern frameworks like React.js or Vue.js to backend infrastructure built on reliable technologies such as Node.js or Django, we employ a comprehensive tech stack tailored to your project's unique needs.</p>
-                            <p>Furthermore, our expertise extends beyond initial development to encompass ongoing backend support and maintenance. We understand the importance of keeping your digital assets running smoothly and securely. That's why we offer dedicated support services to address any technical issues, implement updates, and ensure optimal performance over time. With our proactive approach to maintenance and support, you can rest assured that your digital solutions will continue to thrive long after the initial launch, providing lasting value to your business and users alike.</p>
-                        </div>
-
-                        <div className="accordian-section">
-                            <Accordian items={accordionItems4}/>
-                        </div>
-
-                    </div>
-
-                )
-            }
 
         </div>
 
