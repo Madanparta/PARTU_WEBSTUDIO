@@ -196,8 +196,9 @@ $paragraphcolor: #9f9f9f;
         .heroanimation-info{
             width: min(1100px, 70%);
             h1{
-                font-size: clamp(32px, 3.8vw, 56px);
-                @include m.line-height(56);
+
+                @include m.font-size(62);
+                @include m.line-height(62);
             }
 
             p{
