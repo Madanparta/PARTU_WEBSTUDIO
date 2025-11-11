@@ -1,0 +1,43 @@
+@use '../mixins' as m;
+
+.route-container{
+    width: 100%;
+    min-height: 100vh;
+
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-color);
+        z-index: 9999;
+
+        opacity: 1;
+        transition: opacity 1s ease-in-out;
+
+        &.fade-in {
+            opacity: 1;
+        }
+
+        &.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    .header-container{
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+    }
+
+    .footer-container{
+        height: 100%;
+        width: 100%;
+        background-color: var(--bg-color);
+    }
+}

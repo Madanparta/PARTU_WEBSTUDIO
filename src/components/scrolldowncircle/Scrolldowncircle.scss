@@ -1,0 +1,65 @@
+@use '../../mixins' as m;
+
+.circle-component{
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .scroll-circle-container {
+        position: absolute;
+        inset: 0;
+        transition: transform 0.1s linear;
+        
+        .scroll-circle-text{
+            width: 100%;
+            height: 100%;
+
+            text {
+                fill: var(--white-color);
+                @include m.font-size(14);
+                @include m.line-height(14);
+                font-weight: 500;
+                letter-spacing: 3px;
+            }        
+        }
+    }
+
+    .circle-arrow{
+        width: 4rem;
+        height: 4rem;
+        background: linear-gradient(90deg, #FF007F -93.73%, #7A00FF 96.55%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+        cursor: pointer;
+        box-shadow: 
+            1.4px 5.61px 7.01px 0px rgba(0, 0, 0, 0.25) inset,
+            0 0 15px rgba(0, 0, 0, 0.2);
+
+        img{
+            width: 2rem;
+            height: 2rem;
+            object-fit: contain;
+            object-position: center;
+            transform: rotate(90deg);
+            filter: brightness(0) saturate(100%) invert(86%) sepia(0%) saturate(0%) hue-rotate(224deg) brightness(96%) contrast(90%);
+            transition: filter 0.3s ease;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:active{
+        .circle-arrow{
+            img{
+                filter: brightness(0) saturate(100%) invert(100%);
+            }
+        }
+    }
+}

@@ -1,0 +1,152 @@
+@use '../../mixins' as m;
+
+$bg-translucent: rgba(245, 245, 245, 0.08);
+$btn-bg-dark: var(--black-color);
+
+.secondary-component {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: none;
+  cursor: pointer;
+  padding-inline: 0.25rem;
+  background: $bg-translucent;
+  border-radius: 50px;
+  box-shadow: 1.41px 5.66px 7.07px 0px rgba(0, 0, 0, 0.25) inset;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  min-height: clamp(40px, 3.6vw, 56px);
+  height: auto;
+  min-width: clamp(140px, 12vw, 272px);
+  padding: clamp(6px, 0.6vw, 12px) clamp(8px, 1.2vw, 20px);
+
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  will-change: transform;
+
+  .secondary-text {
+    display: inline-block;
+    color: var(--white-color);
+    text-align: center;
+    white-space: nowrap;
+
+    @include m.font-size(16);
+    @include m.line-height(18);
+    font-weight: 600;
+
+    font-size: clamp(14px, 1.6vw, 22px);
+    line-height: 1;
+    padding-inline: clamp(8px, 1.2vw, 16px);
+  }
+
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $btn-bg-dark;
+    box-shadow: 1.4px 5.61px 7.01px 0px rgba(0, 0, 0, 0.25) inset;
+
+    width: clamp(36px, 3.2vw, 48px);
+    height: clamp(36px, 3.2vw, 48px);
+    padding: 0;
+    overflow: hidden;
+
+    img {
+      width: 60%;
+      height: 60%;
+      object-fit: contain;
+      object-position: center;
+      filter: brightness(0) saturate(100%) invert(86%) sepia(0%) saturate(0%) hue-rotate(224deg) brightness(96%) contrast(90%);
+      transition: filter 0.3s ease, transform 0.18s ease;
+      display: block;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    .action-btn img {
+      filter: brightness(0) saturate(100%) invert(100%);
+      transform: translateX(2px);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 4px rgba(255, 0, 127, 0.08), 0 8px 24px rgba(0, 0, 0, 0.35);
+    outline: none;
+  }
+
+  @include m.media(mobile) {
+    min-width: 120px;
+    .secondary-text {
+      font-size: clamp(13px, 3.2vw, 16px);
+      padding-inline: 8px;
+    }
+  }
+
+  @include m.media(tablet) {
+    min-width: clamp(150px, 20vw, 220px);
+    .secondary-text {
+      font-size: clamp(14px, 2.2vw, 18px);
+    }
+  }
+
+  @include m.media(laptop) {
+    min-width: clamp(170px, 14vw, 260px);
+    .secondary-text {
+      font-size: clamp(16px, 1.8vw, 20px);
+    }
+  }
+
+  @include m.media(desktop) {
+    min-width: clamp(180px, 11vw, 300px);
+    .secondary-text {
+      font-size: clamp(18px, 1.6vw, 22px);
+    }
+    .action-btn {
+      width: clamp(40px, 2.2vw, 52px);
+      height: clamp(40px, 2.2vw, 52px);
+    }
+  }
+
+  @include m.media(qhd) {
+    min-width: clamp(200px, 9.5vw, 340px);
+    .secondary-text {
+      font-size: clamp(20px, 1.4vw, 28px);
+    }
+    .action-btn {
+      width: clamp(44px, 1.6vw, 60px);
+      height: clamp(44px, 1.6vw, 60px);
+      img {
+        width: 64%;
+      }
+    }
+  }
+
+  @include m.media(uhd) {
+    min-width: clamp(230px, 7.5vw, 380px);
+    .secondary-text {
+      font-size: clamp(24px, 1.2vw, 34px);
+    }
+    .action-btn {
+      width: clamp(48px, 1.2vw, 72px);
+      height: clamp(48px, 1.2vw, 72px);
+      img {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .secondary-component {
+    transition: none !important;
+    .action-btn img {
+      transition: none !important;
+    }
+  }
+}
