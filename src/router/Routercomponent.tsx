@@ -7,10 +7,30 @@ import Contactsection from '../pages/contactsection/Contactsection';
 import Privacyandpolicy from '../pages/privacyandpolicy/Privacyandpolicy';
 import Infoservicepage from '../pages/infoservicepage/Infoservicepage';
 import Items from '../pages/infoservicepage/items/Items';
+import { Loadingcomponent } from '../components/loadingcomponent/Loadingcomponent';
+import { useEffect, useState } from 'react';
 
 const Routercomponent = () => {
+  const [loading, setLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => setFadeOut(true), 5500);
+    const finishTimer = setTimeout(() => setLoading(false), 6500);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(finishTimer);
+    };
+  }, []);
+
   return (
     <div className="route-container">
+      {loading && 
+      <div className={`loading-overlay ${fadeOut ? 'fade-out' : 'fade-in'}`}>
+        <Loadingcomponent />
+      </div>
+      }
 
       {/* <nav className='micronav'>
         <p className='horizontal-text' style={{ color: textColor }} onClick={() => window.scrollTo({ left: 0, top: 0, behavior: 'smooth' })}>
