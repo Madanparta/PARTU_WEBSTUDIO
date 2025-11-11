@@ -4,9 +4,15 @@ import BG from '../../assets/svgs/BG.svg';
 import arrowbottom from '../../assets/svgs/right-arrow.svg';
 import Primarybutton from '../../components/primarybutton/Primarybutton';
 import { useState, useRef } from 'react';
+import { useDisableCopyPaste } from '../../hooks/useDisableCopyPaste';
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 const Infoservicepage = () => {
+
+    useDisableCopyPaste(true);
+    useScrollToTop();
     const navigation = useNavigate();
+    
     const [hoveredCard, setHoveredCard] = useState<string | null>(null);
     const servicesSectionRef = useRef<HTMLDivElement>(null);
 

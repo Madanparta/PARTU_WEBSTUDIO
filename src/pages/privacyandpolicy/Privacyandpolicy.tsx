@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import './privacyandpolicy.scss';
 import BG from '../../assets/svgs/BG.svg';
+import { useDisableCopyPaste } from '../../hooks/useDisableCopyPaste';
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 const Privacyandpolicy = () => {
+    useDisableCopyPaste(true);
+    useScrollToTop();
   return (
     <div className='policy-component'>
 
@@ -11,7 +15,7 @@ const Privacyandpolicy = () => {
             <p>
                 <span><Link to="/">HOME</Link></span>
                 <span>/</span>
-                <span><Link to="/contact">PRIVACY & POLICY</Link></span>
+                <span><Link to="/policy">PRIVACY & POLICY</Link></span>
             </p>
         </div>
 

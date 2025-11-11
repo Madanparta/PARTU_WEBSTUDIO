@@ -5,9 +5,15 @@ import Accordian from '../../../components/accordian/Accordian';
 import Primarybutton from '../../../components/primarybutton/Primarybutton';
 import BG from '../../../assets/svgs/BG.svg';
 import { useRef } from 'react';
+import { useDisableCopyPaste } from '../../../hooks/useDisableCopyPaste';
+import useScrollToTop from '../../../hooks/useScrollToTop';
 
 const Items = () => {
+
+    useDisableCopyPaste(true);
+    useScrollToTop();
     const {encoded} = useParams();
+    
     const decoded = atob(encoded as string);
     const itemsSelectedRef = useRef<HTMLDivElement>(null);
 
@@ -126,7 +132,9 @@ const Items = () => {
             <p>
                 <span><Link to="/">HOME</Link></span>
                 <span>/</span>
-                <span style={{textTransform:'uppercase'}}><Link to="/contact">{decoded}</Link></span>
+                <span><Link to="/service">SERVICE</Link></span>
+                <span>/</span>
+                <span style={{textTransform:'uppercase'}}><Link to={`/service/${encoded}`}>{decoded}</Link></span>
             </p>
         </div>
 

@@ -6,6 +6,7 @@ import Primarybutton from '../../components/primarybutton/Primarybutton';
 import { useRef, useState } from 'react';
 import { useDisableCopyPaste } from '../../hooks/useDisableCopyPaste';
 import axios from 'axios';
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 interface FormData {
   name: string;
@@ -23,6 +24,7 @@ interface FormErrors {
 
 const Contactsection = () => {
   useDisableCopyPaste(true);
+  useScrollToTop();
   const contactSelectionRef = useRef<HTMLDivElement>(null);
   
   const [formData, setFormData] = useState<FormData>({

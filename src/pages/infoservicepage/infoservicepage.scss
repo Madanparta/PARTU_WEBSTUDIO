@@ -102,6 +102,7 @@ $gray-color:#838383;
                     @include m.flex-center;
                     transform: translateY(0px);
                     transition: transform 0.3s ease;
+                    cursor: pointer;
 
                     &:hover{
                         transform: translateY(-2px);
@@ -233,6 +234,7 @@ $gray-color:#838383;
                             background: $gray-color;
                             box-shadow: 0px 2.89px 2.89px 0px rgba(0, 0, 0, 0.25) inset;
                             @include m.flex-center;
+                            cursor: pointer;
 
                             span{
                                 display: inline-block;

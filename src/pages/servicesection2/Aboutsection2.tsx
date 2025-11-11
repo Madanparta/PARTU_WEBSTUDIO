@@ -2,8 +2,16 @@ import './aboutsection2.scss';
 import about2 from '../../assets/svgs/about2.png';
 import BG from '../../assets/svgs/BG.svg';
 import Primarybutton from '../../components/primarybutton/Primarybutton';
+import { useDisableCopyPaste } from '../../hooks/useDisableCopyPaste';
+import { useNavigate } from 'react-router-dom';
 
 const Aboutsection2 = () => {
+  useDisableCopyPaste(true);
+  const navigate = useNavigate();
+
+  const handleClickPrimerybutton = () => {
+      navigate("/service");
+  }
   return (
     <div className='about2-component' aria-labelledby="about2-heading">
       <div className='about2info-section'>
@@ -12,7 +20,7 @@ const Aboutsection2 = () => {
         <p>If you’re ready to create, grow, and have fun doing it your place is here. Join us and be part of something extraordinary.</p>
 
         <div className='btn-section'>
-          <Primarybutton/>
+          <Primarybutton onClick={handleClickPrimerybutton}/>
         </div>
 
         <h4>

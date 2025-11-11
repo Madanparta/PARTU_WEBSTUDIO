@@ -5,6 +5,7 @@ import rightarrow from '../../assets/svgs/right-arrow.svg';
 import BG from '../../assets/svgs/BG.svg';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDisableCopyPaste } from '../../hooks/useDisableCopyPaste';
 
 const cardData  = [
   {
@@ -27,6 +28,7 @@ const cardData  = [
 
 const Servicesection = () => {
   const navigate = useNavigate();
+  useDisableCopyPaste(true);
 
   const handleCardClick = useCallback((_index:number) => {
     navigate("/service");

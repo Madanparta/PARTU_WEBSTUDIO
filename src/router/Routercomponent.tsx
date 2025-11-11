@@ -7,10 +7,8 @@ import Contactsection from '../pages/contactsection/Contactsection';
 import Privacyandpolicy from '../pages/privacyandpolicy/Privacyandpolicy';
 import Infoservicepage from '../pages/infoservicepage/Infoservicepage';
 import Items from '../pages/infoservicepage/items/Items';
-// import { useColor } from '../contexts/ColorContext';
 
 const Routercomponent = () => {
-  // const { textColor } = useColor();
   return (
     <div className="route-container">
 

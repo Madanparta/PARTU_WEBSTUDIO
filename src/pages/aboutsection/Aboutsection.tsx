@@ -1,8 +1,10 @@
 import './aboutsection.scss';
 import about from '../../assets/svgs/about.jpg';
 import BG from '../../assets/svgs/BG.svg';
+import { useDisableCopyPaste } from '../../hooks/useDisableCopyPaste';
 
 const Aboutsection = () => {
+  useDisableCopyPaste(true);
   return (
     <section className='about-component' aria-labelledby="about-heading">
       

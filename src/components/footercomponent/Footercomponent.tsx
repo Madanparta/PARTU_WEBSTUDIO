@@ -33,7 +33,7 @@ const Footercomponent = () => {
             <p className='navitem'><Link to="/">Home</Link></p>
             <p className='navitem'><Link to="/service">Service</Link></p>
             <p className='navitem'><Link to="/contact">Contact</Link></p>
-            <p className='navitem'><Link to="/privacy">Privacy & Policy</Link></p>
+            <p className='navitem'><Link to="/policy">Privacy & Policy</Link></p>
           </div>
 
           <div className="mediaitems">
