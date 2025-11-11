@@ -70,7 +70,7 @@ $gray-color: #838383;
     border-radius: 2px;
     background-image: linear-gradient(90deg, #FF007F -93.73%, #7A00FF 96.55%);
     opacity: 0;
-    animation: animationBGBAR 2s ease forwards 3.5s, animationBgHEIGHREDUCE 1.1s ease forwards 5.3s;
+    animation: animationBGBAR 2s ease forwards 3s, animationBgHEIGHREDUCE 1.1s ease forwards 5.3s;
   }
 
   .animationText{
@@ -104,31 +104,21 @@ $gray-color: #838383;
 @keyframes intrSPANhidden {
   0% {
     opacity: 1;
-    transform: translateX(0) translateY(-50%);
-    
-  }
-  60% {
-    opacity: 0.5;
-    transform: translateX(20px) translateY(-50%);
   }
   100% {
     opacity: 0;
-    transform: translateX(40px) translateY(-50%);
+    transform: translateX(1px) translateY(-50%);
   }
 }
 
 @keyframes animationBGBAR {
   0% {
     opacity: 1;
-    left: 15%;
+    left: 30%;
   }
   30% {
     opacity: 1;
     left: -15%;
-  }
-  60% {
-    opacity: 1;
-    left: 15%;
   }
   100% {
     left:0%;

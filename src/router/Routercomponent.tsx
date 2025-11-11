@@ -32,12 +32,6 @@ const Routercomponent = () => {
       </div>
       }
 
-      {/* <nav className='micronav'>
-        <p className='horizontal-text' style={{ color: textColor }} onClick={() => window.scrollTo({ left: 0, top: 0, behavior: 'smooth' })}>
-          HOME
-        </p>
-      </nav> */}
-
       <div className="header-container">
         <Headercomponent/>
       </div>
