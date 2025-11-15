@@ -40,4 +40,13 @@
         width: 100%;
         background-color: var(--bg-color);
     }
+
+    .toptotop-container{
+        width: fit-content;
+        height: fit-content;
+        background-color: green;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 }

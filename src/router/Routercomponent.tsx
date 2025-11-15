@@ -9,6 +9,7 @@ import Infoservicepage from '../pages/infoservicepage/Infoservicepage';
 import Items from '../pages/infoservicepage/items/Items';
 import { Loadingcomponent } from '../components/loadingcomponent/Loadingcomponent';
 import { useEffect, useState } from 'react';
+import { Taptop } from '../components/taptop/Taptop';
 
 const Routercomponent = () => {
   const [loading, setLoading] = useState(true);
@@ -47,6 +48,10 @@ const Routercomponent = () => {
 
       <div className='footer-container'>
         <Footercomponent/>
+      </div>
+
+      <div className='toptotop-container'>
+        <Taptop/>
       </div>
       
     </div>
