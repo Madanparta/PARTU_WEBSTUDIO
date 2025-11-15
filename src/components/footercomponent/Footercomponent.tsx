@@ -44,7 +44,7 @@ const Footercomponent = () => {
                 </a>
               </p>
               <p className='item'>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/partu_webstudio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <img src={instagram} alt="Instagram" />
                 </a>
               </p>
