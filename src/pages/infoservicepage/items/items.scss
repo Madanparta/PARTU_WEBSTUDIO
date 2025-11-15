@@ -367,6 +367,10 @@ $gray-color:#838383;
 @include m.max-media(mobile){
     .items-component{
         .infonav{
+            p{
+                @include m.font-size(10);
+                @include m.line-height(18);
+            }
             .line {
                 width: 8rem;
             }
@@ -403,9 +407,9 @@ $gray-color:#838383;
         }
 
         .servicecontact-container{
-            min-height: 80vh;
+            min-height: 100vh;
             .contactinfo-section{
-                min-height: 80vh;
+                min-height: 100vh;
 
                 h2{
                     @include m.font-size(48);
@@ -415,8 +419,24 @@ $gray-color:#838383;
                 p{
                     @include m.font-size(16);
                     @include m.line-height(22);
+                    width: 90%;
                 }
             }
         }
+
+        .bg-layer-topright{
+            top: 2%;
+            img{
+                width: 50%;
+            }
+        }
+        .bg-layer-bottomleft{
+            bottom: 10%;
+            left: 12%;
+            img{
+                width: 50%;
+            }
+        }
+
     }
 }

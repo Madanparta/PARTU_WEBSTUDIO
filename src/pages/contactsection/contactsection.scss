@@ -464,6 +464,10 @@ $warning-color: #f39c12;
 @include m.max-media(mobile){
   .contact-component{
     .infonav{
+      p{
+          @include m.font-size(10);
+          @include m.line-height(18);
+      }
       .line {
         width: 8rem; 
       }

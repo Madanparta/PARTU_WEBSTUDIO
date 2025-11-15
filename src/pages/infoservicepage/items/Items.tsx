@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import './items.scss';
 import arrowbottom from '../../../assets/svgs/right-arrow.svg';
 import Accordian from '../../../components/accordian/Accordian';
@@ -13,6 +13,7 @@ const Items = () => {
     useDisableCopyPaste(true);
     useScrollToTop();
     const {encoded} = useParams();
+    const navigation = useNavigate();
     
     const decoded = atob(encoded as string);
     const itemsSelectedRef = useRef<HTMLDivElement>(null);
@@ -124,6 +125,10 @@ const Items = () => {
                 })
             }, 300);
         }
+    }
+
+    const handleClickPrimarybutton = () => {
+        navigation("/contact");
     }
   return (
     <div className='items-component'>
@@ -260,7 +265,7 @@ const Items = () => {
                 </h2>
                 <p>At our studio, flexibility is key — we offer both retainer and ad hoc engagement models to meet your unique needs and objectives. Whether you require ongoing partnership or support for a one-off project, we deliver tailored solutions designed to bring your vision to life.</p>
 
-                <Primarybutton text="CONTACT US"/>
+                <Primarybutton onClick={handleClickPrimarybutton} text="CONTACT US"/>
             </div>
         </div>
 
