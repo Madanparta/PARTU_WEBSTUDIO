@@ -27,27 +27,32 @@ const Routercomponent = () => {
   return (
     <div className="route-container">
       {loading && 
-      <div className={`loading-overlay ${fadeOut ? 'fade-out' : 'fade-in'}`}>
-        <Loadingcomponent />
-      </div>
+        <div className={`loading-overlay ${fadeOut ? 'fade-out' : 'fade-in'}`}>
+          <Loadingcomponent />
+        </div>
       }
 
-      <div className="header-container">
-        <Headercomponent/>
+      <div className={`main-content ${!loading ? 'content-visible' : 'content-hidden'}`}>
+        
+        <div className="header-container">
+          <Headercomponent/>
+        </div>
+
+        <Routes>
+          <Route path="/" element={<Visitorpage/>}/>
+          <Route path="/contact" element={<Contactsection/>}/>
+          <Route path="/policy" element={<Privacyandpolicy/>}/>
+          <Route path="/service" element={<Infoservicepage/>}/>
+
+          <Route path="/service/:encoded" element={<Items />} />
+        </Routes>
+
+        <div className='footer-container'>
+          <Footercomponent/>
+        </div>
+
       </div>
 
-      <Routes>
-        <Route path="/" element={<Visitorpage/>}/>
-        <Route path="/contact" element={<Contactsection/>}/>
-        <Route path="/policy" element={<Privacyandpolicy/>}/>
-        <Route path="/service" element={<Infoservicepage/>}/>
-
-        <Route path="/service/:encoded" element={<Items />} />
-      </Routes>
-
-      <div className='footer-container'>
-        <Footercomponent/>
-      </div>
       
     </div>
   )

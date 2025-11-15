@@ -14,7 +14,7 @@
         z-index: 9999;
 
         opacity: 1;
-        // transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
 
         &.fade-in {
             opacity: 1;
@@ -23,6 +23,21 @@
         &.fade-out {
             opacity: 0;
             pointer-events: none;
+        }
+    }
+
+    .main-content{
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        
+        &.content-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        &.content-visible {
+            opacity: 1;
+            visibility: visible;
         }
     }
 
