@@ -26,6 +26,21 @@
         }
     }
 
+    .main-content{
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        
+        &.content-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        &.content-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
     .header-container{
         position: sticky;
         top: 0;

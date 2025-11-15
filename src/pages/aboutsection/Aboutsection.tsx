@@ -46,6 +46,15 @@ const Aboutsection = () => {
         <img src={BG} alt=''/>
         <img src={BG} alt=''/>
         <img src={BG} alt=''/>
+        <img src={BG} alt=''/>
+        <img src={BG} alt=''/>
+        <img src={BG} alt=''/>
+        <img src={BG} alt=''/>
+        <img src={BG} alt=''/>
+        <img src={BG} alt=''/>
+        <img src={BG} alt=''/>
+        <img src={BG} alt=''/>
+        <img src={BG} alt=''/>
       </div>
     </section>
   )

@@ -194,7 +194,7 @@ $gray-color:#838383;
         flex-direction: column;
         opacity: 20%;
 
-        @include m.floatMove(50px, 80px, 10s, ease-in-out);
+        @include m.floatMove(50px, 80px, 35s, ease-in-out);
     }
 }
 
