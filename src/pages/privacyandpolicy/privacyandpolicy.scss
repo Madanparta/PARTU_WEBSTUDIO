@@ -218,6 +218,10 @@ $gray-color:#838383;
 @include m.max-media(mobile){
     .policy-component{
         .infonav{
+            p{
+                @include m.font-size(10);
+                @include m.line-height(18);
+            }
             .line {
                 width: 8rem; 
             }

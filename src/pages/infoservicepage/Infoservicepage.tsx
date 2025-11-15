@@ -45,6 +45,10 @@ const Infoservicepage = () => {
         }
     }
 
+    const handleClickPrimarybutton = () => {
+        navigation("/contact");
+    }
+
   return (
     <div className='infoservice-component'>
         <div className="infonav">
@@ -209,7 +213,7 @@ const Infoservicepage = () => {
                     <span>here to help</span>
                 </h2>
 
-                <Primarybutton text="CONTACT US"/>
+                <Primarybutton onClick={handleClickPrimarybutton} text="CONTACT US"/>
             </div>
         </div>
 

@@ -506,6 +506,10 @@ $gray-color:#838383;
 @include m.max-media(mobile){
     .infoservice-component{
         .infonav{
+            p{
+                @include m.font-size(10);
+                @include m.line-height(18);
+            }
             .line {
                 width: 8rem;
             }
@@ -559,13 +563,14 @@ $gray-color:#838383;
                 }
 
                 .line {
-                    width: 6rem;
+                    width: 4rem;
                 }
             }
 
             .contactinfo-section{
                 min-width: 100%;
                 min-height: 60vh;
+                
                 h2{
                     @include m.font-size(34);
                     @include m.line-height(42);
@@ -575,10 +580,28 @@ $gray-color:#838383;
 
         .bg-layer-right{
             position: absolute;
-            top: 80%;
-            right: -16%;
+            top: 87%;
+            right: -55%;
             opacity: 0.3;
             transform: translate(-50%,-50%);
+
+            img{
+                width: 50%;
+            }
+        }
+
+        .bg-layer-left{
+            left: 12%;
+            img{
+                width: 50%;
+            }
+        }
+
+        .bg-layer-top{
+            top: 2%;
+            img{
+                width: 50%;
+            }
         }
 
     }

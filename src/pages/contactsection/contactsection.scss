@@ -464,6 +464,10 @@ $warning-color: #f39c12;
 @include m.max-media(mobile){
   .contact-component{
     .infonav{
+      p{
+          @include m.font-size(10);
+          @include m.line-height(18);
+      }
       .line {
         width: 8rem; 
       }
@@ -487,10 +491,19 @@ $warning-color: #f39c12;
 
       .contactbody-section{
         margin-top: 3rem;
+        padding-inline: 0.5rem;
+
+        .inputcontainer{
+          label{
+            @include m.font-size(14);
+            @include m.line-height(14);
+          }
+        }
+
       }
 
       .inputsalgin{
-        margin-bottom: 3rem;
+        margin-bottom: 0rem;
       }
 
       .contactbody-section{

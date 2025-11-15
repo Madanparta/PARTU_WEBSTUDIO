@@ -84,7 +84,7 @@ $gray-color:#838383;
         .service-container{
             .infonav{
                 p{
-                    @include m.font-size(14);
+                    @include m.font-size(10);
                     @include m.line-height(18);
                 }
                 .line{
