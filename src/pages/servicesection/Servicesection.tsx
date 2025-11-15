@@ -30,7 +30,7 @@ const Servicesection = () => {
   const navigate = useNavigate();
   useDisableCopyPaste(true);
 
-  const handleCardClick = useCallback((_index:number) => {
+  const handleCardClick = useCallback(() => {
     navigate("/service");
   }, []);
 
@@ -64,8 +64,8 @@ const Servicesection = () => {
             role="listitem"
             tabIndex={0}
             className="cardcontainer"
-            onClick={() => handleCardClick(i)}
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(i); } }}
+            onClick={() => handleCardClick()}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(); } }}
             aria-label={`Open details for ${typeof c.title === 'string' ? c.title : 'service'}`}
           >
             <h4>{c.title}</h4>

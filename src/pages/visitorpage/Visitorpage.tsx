@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import Aboutsection from '../aboutsection/Aboutsection';
 import Herosection from '../herosecton/Herosection';
 import Servicesection from '../servicesection/Servicesection';
@@ -5,13 +6,39 @@ import Aboutsection2 from '../servicesection2/Aboutsection2';
 import './visitorpage.scss';
 
 const Visitorpage = () => {
+  const [componentBGChange,setComponentBGChange] = useState(false);
+  const componentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setComponentBGChange(entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px 0px 0px'
+      }
+    );
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        observer.unobserve(componentRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className='visiter-container'>
 
       <Herosection/>
 
-      <div className="about-container" id="about">
+      <div className={`about-container ${componentBGChange ? "about-container-BGChange" : "" }`} id="about" ref={componentRef}>
         <Aboutsection/>
       </div>
 

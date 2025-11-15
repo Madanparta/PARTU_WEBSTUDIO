@@ -8,6 +8,9 @@ interface ThreadsProps {
   enableMouseInteraction?: boolean;
 }
 
+type OGLRenderer = InstanceType<typeof Renderer>;
+type OGLProgram = InstanceType<typeof Program>;
+
 const vertexShader = `
 attribute vec2 position;
 attribute vec2 uv;
@@ -134,17 +137,27 @@ const Threads: React.FC<ThreadsProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number | undefined>(undefined);
+  const rendererRef = useRef<OGLRenderer | null>(null);
+  const programRef = useRef<OGLProgram | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
 
     const renderer = new Renderer({ alpha: true });
+    rendererRef.current = renderer;
     const gl = renderer.gl;
-    gl.clearColor(0, 0, 0, 1);
+    gl.clearColor(0, 0, 0, 0);
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    
+    gl.canvas.style.opacity = '0';
     container.appendChild(gl.canvas);
+    
+    requestAnimationFrame(() => {
+      gl.canvas.style.transition = 'opacity 0.3s ease-in';
+      gl.canvas.style.opacity = '1';
+    });
 
     const geometry = new Triangle(gl);
     const program = new Program(gl, {
@@ -161,6 +174,7 @@ const Threads: React.FC<ThreadsProps> = ({
         uMouse: { value: new Float32Array([0.5, 0.5]) }
       }
     });
+    programRef.current = program;
 
     const mesh = new Mesh(gl, { geometry, program });
 
@@ -217,10 +231,23 @@ const Threads: React.FC<ThreadsProps> = ({
         container.removeEventListener('mousemove', handleMouseMove);
         container.removeEventListener('mouseleave', handleMouseLeave);
       }
-      if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
+      if (container.contains(gl.canvas)) {
+        gl.canvas.style.opacity = '0';
+        setTimeout(() => {
+          if (container.contains(gl.canvas)) container.removeChild(gl.canvas);
+        }, 300);
+      }
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [color, amplitude, distance, enableMouseInteraction]);
+  }, []);
+
+  useEffect(() => {
+    if (programRef.current) {
+      programRef.current.uniforms.uColor.value = new Color(...color);
+      programRef.current.uniforms.uAmplitude.value = amplitude;
+      programRef.current.uniforms.uDistance.value = distance;
+    }
+  }, [color, amplitude, distance]);
 
   return <div ref={containerRef} className="threads-container" {...rest} />;
 };
