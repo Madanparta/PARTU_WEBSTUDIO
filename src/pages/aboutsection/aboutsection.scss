@@ -145,9 +145,12 @@ $paragraphcolor: #9f9f9f;
         transform: translate(-50%,-50%);
         display: flex;
         flex-direction: column;
-        opacity: 0.3;
 
         @include m.floatMove(50px, 80px, 35s, ease-in-out);
+
+        img{
+            opacity:0.3;
+        }
     }
 }
 
