@@ -44,7 +44,7 @@ const Footercomponent = () => {
                 </a>
               </p>
               <p className='item'>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/partu_webstudio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <img src={instagram} alt="Instagram" />
                 </a>
               </p>
@@ -55,7 +55,7 @@ const Footercomponent = () => {
               </p>
             </div>
 
-            <div className="searchcontainer" aria-hidden="false">
+            <div title='future available soon' className="searchcontainer" aria-hidden="false">
 
               <div className='search-bg' aria-hidden="true"></div>
               <input type="text" aria-label="Search" placeholder="Search"/>
