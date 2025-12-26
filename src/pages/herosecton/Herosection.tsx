@@ -5,10 +5,12 @@ import Secondarybutton from '../../components/secondarybutton/Secondarybutton';
 import { useDisableCopyPaste } from '../../hooks/useDisableCopyPaste';
 import './herosection.scss';
 import Threads from './Threads';
+import { useLayoutEffect, useRef } from 'react';
 
 const Herosection = () => {
     useDisableCopyPaste(true);
     const navigate = useNavigate();
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const handleClickPrimerybutton = () => {
         navigate("/service");
@@ -16,8 +18,15 @@ const Herosection = () => {
     const handleClickSeconderybutton = () => {
         navigate("/contact");
     }
+
+    useLayoutEffect(() => {
+        if (containerRef.current) {
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            containerRef.current.clientHeight;
+        }
+    }, []);
   return (
-    <div className='herosection-component'>
+    <div className='herosection-component' ref={containerRef}>
         <div className='heroanimation-info'>
             <h1>
                 <span>Design & Innovation</span> <span>for <br /></span> <span>Impactful</span> <span>Growth</span>
